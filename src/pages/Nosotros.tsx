@@ -110,6 +110,23 @@ const Nosotros = () => {
           </div>
         </div>
       </WireSection>
+
+      <SeoTechBlock
+        page="Nosotros (/nosotros)"
+        title="Sobre [Marca] · Comercializadora de desechables compostables en México"
+        description="Conoce a [Marca]: misión, equipo y certificaciones. Comercializadora B2B de desechables biodegradables con cobertura nacional y compromiso con la economía circular."
+        h1="Sobre [Marca]"
+        schemas={[
+          "Organization (foundingDate, numberOfEmployees, address, sameAs)",
+          "AboutPage como tipo principal",
+          "BreadcrumbList",
+        ]}
+        notes={[
+          "Refuerza E-E-A-T: nombres reales, fotos del equipo, certificaciones verificables",
+          "Vincular sameAs a LinkedIn corporativo, Instagram, Facebook",
+          "Si hay piso de venta: agregar LocalBusiness con horarios",
+        ]}
+      />
     </>
   );
 };
