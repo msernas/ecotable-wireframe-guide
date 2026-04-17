@@ -1,5 +1,6 @@
 import { WireSection, PageBanner } from "@/components/wireframe/WireSection";
 import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
+import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 
 const stack = [
   {

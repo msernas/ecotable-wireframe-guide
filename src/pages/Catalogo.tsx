@@ -38,6 +38,12 @@ const materiales = [
 const Catalogo = () => {
   return (
     <>
+      <PageSeoTopBar
+        page="Catálogo"
+        url="/catalogo"
+        h1="Catálogo de desechables biodegradables y compostables B2B"
+        primaryKeyword="catálogo empaques compostables"
+      />
       <PageBanner
         breadcrumb="Inicio / Catálogo"
         h1="Catálogo de desechables biodegradables y compostables B2B"

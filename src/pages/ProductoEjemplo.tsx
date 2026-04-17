@@ -36,6 +36,12 @@ const faqs = [
 const ProductoEjemplo = () => {
   return (
     <>
+      <PageSeoTopBar
+        page="Producto · Vaso bagazo 12oz"
+        url="/catalogo/vaso-bagazo-12oz"
+        h1="Vaso compostable de bagazo de trigo 12 oz — Caliente, B2B"
+        primaryKeyword="vaso bagazo 12oz compostable"
+      />
       <PageBanner
         breadcrumb="Inicio / Catálogo / Vasos / Vaso compostable de bagazo 12 oz"
         h1="Vaso compostable de bagazo de trigo 12 oz — Caliente, B2B"

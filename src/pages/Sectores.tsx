@@ -42,6 +42,12 @@ const sectoresIndustriales = [
 const Sectores = () => {
   return (
     <>
+      <PageSeoTopBar
+        page="Sectores"
+        url="/sectores"
+        h1="Soluciones por sector · Foco HORECA"
+        primaryKeyword="empaques sustentables HORECA"
+      />
       <PageBanner
         breadcrumb="Inicio / Sectores"
         h1="Soluciones por sector · Foco HORECA"
