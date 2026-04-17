@@ -164,33 +164,115 @@ const Catalogo = () => {
         </div>
       </WireSection>
 
+      {/* COMPARATIVA DE MATERIALES */}
+      <div id="comparativa" />
+      <WireSection tag="02 · Comparativa" title="Tabla comparativa de materiales compostables">
+        <div className="overflow-x-auto rounded border border-border bg-card">
+          <table className="w-full text-xs">
+            <thead className="border-b border-border bg-muted/40">
+              <tr className="text-left">
+                <th className="p-3 font-semibold">Material</th>
+                <th className="p-3 font-semibold">Origen</th>
+                <th className="p-3 font-semibold">Uso ideal</th>
+                <th className="p-3 font-semibold">Resistencia térmica</th>
+                <th className="p-3 font-semibold">Compostaje</th>
+                <th className="p-3 font-semibold">Certificaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {materialesComparativa.map((m) => (
+                <tr key={m.material} className="border-b border-border last:border-0 align-top">
+                  <td className="p-3 font-semibold">{m.material}</td>
+                  <td className="p-3 text-muted-foreground">{m.origen}</td>
+                  <td className="p-3 text-muted-foreground">{m.uso}</td>
+                  <td className="p-3 font-mono text-muted-foreground whitespace-nowrap">{m.temp}</td>
+                  <td className="p-3 font-mono text-muted-foreground whitespace-nowrap">{m.compostaje}</td>
+                  <td className="p-3 text-muted-foreground">{m.cert}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="wire-note mt-4">
+          SEO · Tabla altamente indexable + featured-snippet candidate. Schema.org Table + ItemList. Genera tráfico orgánico de queries comparativas tipo "PLA vs bagazo de trigo".
+        </p>
+      </WireSection>
+
+      {/* GUÍA CÓMO ELEGIR */}
+      <div id="como-elegir" />
+      <WireSection tag="03 · Guía" title="Cómo elegir el desechable adecuado para tu operación">
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            { paso: "01", titulo: "Define la temperatura de uso", detalle: "Bebidas frías → PLA. Café/sopa caliente → papel + PLA o bagazo. Comida horno/microondas → bagazo de trigo (hasta 100 °C)." },
+            { paso: "02", titulo: "Calcula tu volumen mensual", detalle: "Menos de 5,000 piezas/mes → catálogo estándar. Más de 50,000/mes → lista de precios mayoreo + producción dedicada con tu marca." },
+            { paso: "03", titulo: "Verifica certificación requerida", detalle: "FDA grado alimenticio para todo lo que toca alimentos. TÜV OK Compost INDUSTRIAL si tu ciudad tiene compostaje municipal. HOME si va a composta doméstica." },
+            { paso: "04", titulo: "Considera el ciclo logístico", detalle: "Productos apilables ahorran espacio y flete. Pide ficha técnica con dimensiones de caja máster antes de cotizar." },
+            { paso: "05", titulo: "Evalúa branding e impresión", detalle: "Si quieres logo, mínimo 5,000 unidades por SKU. Tinta a base de agua, certificada para contacto alimenticio." },
+            { paso: "06", titulo: "Solicita muestras físicas", detalle: "Antes de cualquier pedido grande, pide muestras gratis. Prueba con tu equipo y tus clientes reales una semana." },
+          ].map((p) => (
+            <div key={p.paso} className="rounded border border-border bg-card p-4 space-y-2">
+              <div className="text-[11px] font-mono uppercase text-muted-foreground">Paso {p.paso}</div>
+              <div className="text-sm font-semibold">{p.titulo}</div>
+              <div className="text-xs text-muted-foreground">{p.detalle}</div>
+            </div>
+          ))}
+        </div>
+        <p className="wire-note mt-4">
+          SEO · Schema.org HowTo con steps. Posiciona en featured snippets para queries "cómo elegir desechables compostables".
+        </p>
+      </WireSection>
+
       {/* CTA */}
-      <WireSection tag="02 · CTA volumen" title="Llamado a cotización por volumen">
+      <WireSection tag="04 · CTA volumen" title="Llamado a cotización por volumen">
         <div className="rounded border border-border bg-card p-8 text-center">
           <div className="mx-auto max-w-xl space-y-3">
             <h2 className="text-lg font-semibold">¿Necesitas volumen mayoreo?</h2>
             <Lines count={2} widths={["80%", "60%"]} />
-            <div className="wire-box mx-auto h-11 w-48 !border-solid">Solicitar cotización</div>
+            <div className="flex justify-center gap-2">
+              <div className="wire-box h-11 w-48 !border-solid">Solicitar cotización</div>
+              <div className="wire-box h-11 w-48">Descargar catálogo PDF</div>
+            </div>
           </div>
         </div>
       </WireSection>
 
+      {/* FAQ */}
+      <div id="faq" />
+      <WireSection tag="05 · FAQ" title="Preguntas frecuentes (FAQPage Schema)">
+        <div className="mx-auto max-w-3xl space-y-3">
+          {faqs.map((f, i) => (
+            <details key={i} className="rounded border border-border bg-card p-4">
+              <summary className="cursor-pointer text-sm font-semibold">{f.q}</summary>
+              <p className="mt-2 text-xs text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <p className="wire-note mt-4 text-center">
+          SEO · Schema.org FAQPage obligatorio. Genera rich snippets en SERP con acordeones desplegables = +30% CTR orgánico.
+        </p>
+      </WireSection>
+
       <SeoTechBlock
         page="Catálogo (/catalogo)"
-        title="Catálogo de desechables biodegradables y compostables | [Marca]"
-        description="Catálogo completo: contenedores, vasos, cubiertos, platos y bolsas compostables de bagazo, PLA y fécula de maíz. Mayoreo B2B con entrega nacional."
-        h1="Catálogo de desechables biodegradables"
+        title="Desechables biodegradables y compostables B2B | Catálogo [Marca]"
+        description="Catálogo de 90+ productos compostables certificados: contenedores, vasos, cubiertos, platos y bolsas de bagazo, PLA y fécula. Mayoreo B2B, entrega nacional MX."
+        h1="Catálogo de desechables biodegradables y compostables B2B"
         schemas={[
           "BreadcrumbList (Inicio › Catálogo)",
-          "ItemList con cada Product (name, image, description, brand, offers)",
           "CollectionPage como tipo principal",
+          "ItemList con cada Product (name, image, description, brand, offers)",
+          "FAQPage con las 5 preguntas frecuentes",
+          "HowTo para la guía 'Cómo elegir' (6 steps)",
         ]}
         notes={[
-          "Filtros como query params indexables solo si tienen volumen de búsqueda; resto noindex",
+          "Intro editorial 250-350 palabras con keyword principal — convierte el listado en página rankeable",
+          "Tabla comparativa de materiales = featured snippet candidate para queries comparativas",
+          "Filtros indexables solo si tienen volumen de búsqueda; resto noindex via meta robots dinámico",
           "rel=canonical apuntando a /catalogo cuando hay filtros aplicados",
           "Paginación con rel=prev/next + URLs limpias /catalogo?page=2",
-          "Cada producto: ficha individual /catalogo/[slug] con Schema.org Product + Offer",
-          "Imágenes: lazy-loading excepto primeras 3 (above the fold)",
+          "Cada producto: ficha individual /catalogo/[slug] con Schema.org Product + Offer + FAQ",
+          "Imágenes: lazy-loading excepto primeras 3 (above the fold), srcset responsive, WebP",
+          "Plugin Rank Math o Yoast para automatizar schema, sitemap y meta tags",
         ]}
       />
     </>
