@@ -128,16 +128,22 @@ const Catalogo = () => {
             {/* GRID DE PRODUCTOS */}
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {Array.from({ length: 9 }).map((_, i) => (
-                <article key={i} className="space-y-2 rounded border border-border bg-card p-3">
+                <Link
+                  key={i}
+                  to={i === 0 ? "/catalogo/vaso-bagazo-12oz" : "/catalogo/vaso-bagazo-12oz"}
+                  className="group block space-y-2 rounded border border-border bg-card p-3 hover:shadow-md transition"
+                >
                   <div className="wire-box h-36">FOTO PRODUCTO</div>
                   <div className="text-[10px] uppercase text-muted-foreground">Categoría · Material</div>
-                  <h3 className="text-sm font-semibold">Nombre del producto</h3>
+                  <h3 className="text-sm font-semibold group-hover:underline">
+                    {i === 0 ? "Vaso bagazo 12 oz (DEMO)" : "Nombre del producto"}
+                  </h3>
                   <Lines count={2} widths={["100%", "70%"]} />
                   <div className="flex items-center justify-between pt-1">
                     <div className="text-xs font-semibold">SKU / presentación</div>
-                    <div className="wire-box h-7 w-20 !border-solid text-[11px]">Cotizar</div>
+                    <div className="wire-box h-7 w-20 !border-solid text-[11px]">Ver ficha →</div>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
 
