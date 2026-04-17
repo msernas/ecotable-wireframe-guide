@@ -1,5 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 
 type KeywordRow = {
   page: string;
@@ -122,7 +123,14 @@ const priorityColor: Record<KeywordRow["priority"], string> = {
 
 const SeoKeywords = () => {
   return (
-    <div className="container py-12">
+    <>
+      <PageSeoTopBar
+        page="SEO · Keyword map"
+        url="/seo-keywords"
+        h1="Keywords a optimizar por página"
+        primaryKeyword="mapa de keywords Renovapack"
+      />
+      <div className="container py-12">
       <header className="mb-8 max-w-3xl">
         <span className="wire-section-tag">SEO · Keyword map</span>
         <h1 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
