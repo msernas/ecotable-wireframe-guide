@@ -76,6 +76,7 @@ const SiteHeader = () => {
           <Link to="/blog" className="hover:text-foreground">Blog & Recursos</Link>
           <Link to="/sustentabilidad" className="hover:text-foreground">Sustentabilidad</Link>
           <Link to="/recomendaciones-tecnicas" className="hover:text-foreground">Stack técnico</Link>
+          <Link to="/seo-keywords" className="hover:text-foreground">SEO keywords</Link>
           <Link to="/inversionistas" className="hover:text-foreground">Distribuidores</Link>
           <Link to="/prensa" className="hover:text-foreground">Prensa</Link>
           <span className="h-4 w-px bg-border" />
