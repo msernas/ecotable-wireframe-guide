@@ -1,5 +1,22 @@
+import { Link } from "react-router-dom";
 import { WireSection, Lines, PageBanner } from "@/components/wireframe/WireSection";
 import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
+
+const materialesComparativa = [
+  { material: "Bagazo de trigo", origen: "Residuo agrícola del trigo", uso: "Platos, contenedores, bowls calientes", temp: "Hasta 100 °C", compostaje: "60-90 días industrial", cert: "TÜV OK Compost, BPI" },
+  { material: "PLA (ácido poliláctico)", origen: "Almidón de maíz fermentado", uso: "Vasos fríos, cubiertos, tapas", temp: "Hasta 40 °C", compostaje: "90-180 días industrial", cert: "TÜV OK Compost, ASTM D6400" },
+  { material: "Fécula de maíz", origen: "Almidón de maíz", uso: "Cubiertos, platos pequeños", temp: "Hasta 80 °C", compostaje: "60-90 días", cert: "BPI, OK Compost HOME" },
+  { material: "Bolsas compostables", origen: "PBAT + almidón vegetal", uso: "Bolsas T-shirt, basura, supermercado", temp: "Ambiente", compostaje: "180 días industrial", cert: "EN 13432, OK Compost" },
+  { material: "Papel + PLA", origen: "Papel kraft con película PLA", uso: "Vasos calientes, contenedores líquidos", temp: "Hasta 95 °C", compostaje: "90-180 días industrial", cert: "FSC, BPI" },
+];
+
+const faqs = [
+  { q: "¿Cuál es la diferencia entre biodegradable y compostable?", a: "Biodegradable significa que se descompone con microorganismos sin tiempo definido. Compostable cumple normas (EN 13432, ASTM D6400) que garantizan descomposición en 180 días en compostaje industrial, sin residuos tóxicos." },
+  { q: "¿Cuál es el pedido mínimo para mayoreo B2B?", a: "Pedido mínimo de $5,000 MXN o 1 caja por SKU. Para volúmenes superiores a 50 cajas/mes ofrecemos lista de precios preferencial con descuentos por volumen." },
+  { q: "¿Hacen entregas a toda la república mexicana?", a: "Sí, entregamos en las 32 entidades. CDMX y zona metropolitana en 24-48h. Resto del país 3-7 días hábiles vía paquetería especializada." },
+  { q: "¿Qué certificaciones tienen sus productos?", a: "TÜV OK Compost INDUSTRIAL/HOME, BPI (USA), FSC para papel, FDA grado alimenticio y ASTM D6400. Todas verificables con número de certificado en cada ficha de producto." },
+  { q: "¿Pueden personalizar productos con mi marca?", a: "Sí, ofrecemos impresión y branding (logo, colores) en vasos, contenedores y bolsas a partir de 5,000 unidades por SKU. Tiempo de producción 4-6 semanas." },
+];
 
 const categorias = [
   { name: "Contenedores", note: "envases, bowls, cajas para llevar", count: 24 },
@@ -23,11 +40,44 @@ const Catalogo = () => {
     <>
       <PageBanner
         breadcrumb="Inicio / Catálogo"
-        h1="Catálogo de desechables biodegradables"
-        intro="Explora todos nuestros productos compostables, organizados por categoría o por material."
+        h1="Catálogo de desechables biodegradables y compostables B2B"
+        intro="Más de 90 productos compostables certificados para hoteles, cafeterías, hospitales, comedores industriales y empresas de empaque. Bagazo de trigo, PLA, fécula de maíz y papel laminado — con entrega nacional y precios mayoreo."
       />
 
+      {/* INTRO EDITORIAL SEO */}
+      <WireSection tag="00 · Intro editorial" title="Texto introductorio (SEO + contexto al usuario)">
+        <div className="grid gap-6 md:grid-cols-[2fr_1fr]">
+          <div className="space-y-3 text-sm leading-relaxed">
+            <p>
+              Nuestro catálogo de <strong>desechables biodegradables y compostables</strong> está diseñado específicamente para operaciones B2B de alto volumen que necesitan reemplazar el plástico de un solo uso sin sacrificar funcionalidad ni elevar costos drásticamente. Cada producto cumple con las normativas <strong>EN 13432, ASTM D6400 y NOM-161-SEMARNAT</strong>, y cuenta con certificaciones internacionales TÜV OK Compost, BPI y FSC.
+            </p>
+            <p>
+              Trabajamos con <strong>cinco materiales compostables</strong> diferentes — bagazo de trigo, PLA (ácido poliláctico), fécula de maíz, bolsas compostables (PBAT + almidón) y papel kraft laminado con PLA — porque cada aplicación requiere propiedades específicas: resistencia térmica, impermeabilidad, rigidez o flexibilidad. Más abajo encontrarás una <Link to="#comparativa" className="underline">tabla comparativa de materiales</Link> y una <Link to="#como-elegir" className="underline">guía rápida para elegir el adecuado</Link>.
+            </p>
+            <p>
+              Si manejas un hotel, cafetería de especialidad, hospital, comedor industrial o empresa de empaque y necesitas <strong>cotización por volumen, fichas técnicas en PDF o muestras físicas antes de decidir</strong>, contáctanos y te asignamos un asesor B2B especializado en tu sector.
+            </p>
+          </div>
+          <aside className="rounded border border-border bg-muted/40 p-5 space-y-3">
+            <div className="text-xs font-semibold uppercase tracking-wider">Acceso rápido</div>
+            <ul className="space-y-2 text-xs">
+              <li>→ <Link to="#categorias" className="underline">Filtrar por categoría</Link></li>
+              <li>→ <Link to="#comparativa" className="underline">Comparar materiales</Link></li>
+              <li>→ <Link to="#como-elegir" className="underline">Guía: cómo elegir</Link></li>
+              <li>→ <Link to="#faq" className="underline">Preguntas frecuentes</Link></li>
+              <li>→ <Link to="/contacto" className="underline">Solicitar muestras gratis</Link></li>
+            </ul>
+            <div className="wire-box mt-3 h-10 !border-solid text-[11px]">Descargar catálogo PDF</div>
+          </aside>
+        </div>
+        <p className="wire-note mt-4">
+          SEO · Bloque de 250-350 palabras con keyword principal en H1 + 2-3 menciones naturales, enlaces internos a anclas y a /contacto. Convierte el catálogo de "lista de productos" en "página rankeable".
+        </p>
+      </WireSection>
+
       {/* FILTROS */}
+      <div id="categorias" />
+      
       <WireSection tag="01 · Filtros" title="Sidebar de filtros + buscador">
         <div className="grid gap-6 md:grid-cols-[260px_1fr]">
           <aside className="space-y-5 rounded border border-border bg-card p-4">
