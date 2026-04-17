@@ -1,4 +1,5 @@
 import { WireSection, Lines, PageBanner } from "@/components/wireframe/WireSection";
+import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
 
 const Contacto = () => {
   return (

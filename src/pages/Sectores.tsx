@@ -1,4 +1,5 @@
 import { WireSection, Lines, PageBanner } from "@/components/wireframe/WireSection";
+import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
 
 const sectores = [
   {
@@ -97,6 +98,23 @@ const Sectores = () => {
           ))}
         </div>
       </WireSection>
+
+      <SeoTechBlock
+        page="Sectores (/sectores)"
+        title="Soluciones de desechables compostables por sector B2B | [Marca]"
+        description="Soluciones de empaque biodegradable a medida para hoteles, cafeterías, hospitales, empaque y comedores industriales. Casos de éxito y catálogo por industria."
+        h1="Soluciones por sector"
+        schemas={[
+          "BreadcrumbList",
+          "ItemList con cada sector como Service",
+          "Service por sector individual con areaServed y provider",
+        ]}
+        notes={[
+          "Una landing por sector: /sectores/hoteles, /sectores/hospitales, etc.",
+          "Long-tail keywords por sector ('desechables compostables para hospitales')",
+          "Caso de éxito como Article + ítem dentro del Service",
+        ]}
+      />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import { WireSection, Lines, PageBanner } from "@/components/wireframe/WireSection";
+import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
 
 const categorias = [
   { name: "Contenedores", note: "envases, bowls, cajas para llevar", count: 24 },
@@ -123,6 +124,25 @@ const Catalogo = () => {
           </div>
         </div>
       </WireSection>
+
+      <SeoTechBlock
+        page="Catálogo (/catalogo)"
+        title="Catálogo de desechables biodegradables y compostables | [Marca]"
+        description="Catálogo completo: contenedores, vasos, cubiertos, platos y bolsas compostables de bagazo, PLA y fécula de maíz. Mayoreo B2B con entrega nacional."
+        h1="Catálogo de desechables biodegradables"
+        schemas={[
+          "BreadcrumbList (Inicio › Catálogo)",
+          "ItemList con cada Product (name, image, description, brand, offers)",
+          "CollectionPage como tipo principal",
+        ]}
+        notes={[
+          "Filtros como query params indexables solo si tienen volumen de búsqueda; resto noindex",
+          "rel=canonical apuntando a /catalogo cuando hay filtros aplicados",
+          "Paginación con rel=prev/next + URLs limpias /catalogo?page=2",
+          "Cada producto: ficha individual /catalogo/[slug] con Schema.org Product + Offer",
+          "Imágenes: lazy-loading excepto primeras 3 (above the fold)",
+        ]}
+      />
     </>
   );
 };
