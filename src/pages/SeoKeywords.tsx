@@ -238,6 +238,7 @@ const SeoKeywords = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
