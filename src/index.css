@@ -2,87 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Renovapack — Design System (basado en propuesta Cyan Media Lab 2026)
-   Paleta: Innovación #004e64 (teal profundo) + acento Dinámico #e67e22 (naranja)
-   "El futuro se empaca distinto"
-   Todos los colores en HSL. */
+/* Renovapack — Design System (paleta oficial Cyan Media Lab 2026)
+   Conexión #628141 (verde tierra)  · Fortaleza #1f261d (verde casi negro)
+   Confianza #fffbf8 (off-white)    · Natural   #e5d9b6 (beige cálido)
+   Legado   #40513b (verde profundo)· Dinámico  #e67e22 (naranja acento)
+   "El futuro se empaca distinto" — todos los colores en HSL. */
 
 @layer base {
   :root {
-    --background: 40 20% 98%;             /* off-white cálido */
-    --foreground: 195 100% 12%;           /* casi negro azulado */
+    /* Confianza #fffbf8 */
+    --background: 24 100% 99%;
+    /* Fortaleza #1f261d */
+    --foreground: 108 13% 13%;
 
     --card: 0 0% 100%;
-    --card-foreground: 195 100% 12%;
+    --card-foreground: 108 13% 13%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 195 100% 12%;
+    --popover-foreground: 108 13% 13%;
 
-    /* Primary — Innovación #004e64 (teal profundo Renovapack) */
-    --primary: 192 100% 20%;
-    --primary-foreground: 40 20% 98%;
-    --primary-glow: 192 80% 35%;
+    /* Primary — Conexión #628141 (verde Renovapack) */
+    --primary: 89 33% 38%;
+    --primary-foreground: 24 100% 99%;
+    /* Glow: variante luminosa del verde Conexión */
+    --primary-glow: 89 38% 50%;
 
-    --secondary: 192 30% 92%;
-    --secondary-foreground: 192 100% 20%;
+    /* Secondary — Natural #e5d9b6 (beige cálido) */
+    --secondary: 46 51% 81%;
+    --secondary-foreground: 108 13% 13%;
 
-    --muted: 40 15% 94%;
-    --muted-foreground: 195 25% 35%;
+    /* Muted — derivado del Natural, más claro */
+    --muted: 46 40% 92%;
+    --muted-foreground: 108 13% 30%;
 
-    /* Accent — Dinámico #e67e22 (naranja energético, propuesta 2 Cyan Media Lab) */
+    /* Accent — Dinámico #e67e22 (naranja energético) */
     --accent: 28 80% 52%;
-    --accent-foreground: 40 20% 98%;
+    --accent-foreground: 24 100% 99%;
 
-    --destructive: 0 70% 50%;
+    --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 195 20% 85%;
-    --input: 195 20% 88%;
-    --ring: 192 100% 20%;
+    /* Borders/inputs derivados del Natural */
+    --border: 46 30% 82%;
+    --input: 46 30% 86%;
+    /* Ring usa el verde Conexión */
+    --ring: 89 33% 38%;
 
     --radius: 0.25rem;
 
-    /* Wireframe-specific tokens (preserved) */
-    --wire-box: 195 15% 92%;
-    --wire-box-border: 195 20% 70%;
-    --wire-label: 195 30% 30%;
-    --wire-annotation: 28 80% 45%;            /* naranja Renovapack para anotaciones SEO */
+    /* Wireframe-specific tokens — alineados a la paleta oficial */
+    --wire-box: 46 35% 90%;                   /* beige Natural muy claro */
+    --wire-box-border: 89 20% 55%;            /* verde Conexión desaturado */
+    --wire-label: 108 13% 25%;                /* Fortaleza suavizada */
+    --wire-annotation: 28 80% 45%;            /* Dinámico naranja para SEO */
     --wire-annotation-bg: 28 80% 95%;
     --wire-annotation-border: 28 70% 70%;
-    --wire-alt: 192 80% 30%;                  /* teal Renovapack para alt-text */
-    --wire-alt-bg: 192 50% 94%;
-    --wire-alt-border: 192 50% 65%;
+    --wire-alt: 89 33% 32%;                   /* Conexión profunda para alt-text */
+    --wire-alt-bg: 89 30% 92%;
+    --wire-alt-border: 89 25% 60%;
 
-    --sidebar-background: 40 20% 98%;
-    --sidebar-foreground: 195 25% 26%;
-    --sidebar-primary: 192 100% 20%;
-    --sidebar-primary-foreground: 40 20% 98%;
-    --sidebar-accent: 192 30% 95%;
-    --sidebar-accent-foreground: 192 100% 20%;
-    --sidebar-border: 195 20% 88%;
-    --sidebar-ring: 192 100% 35%;
+    /* Sidebar — superficie Confianza con acento Conexión */
+    --sidebar-background: 24 100% 99%;
+    --sidebar-foreground: 108 13% 20%;
+    --sidebar-primary: 89 33% 38%;
+    --sidebar-primary-foreground: 24 100% 99%;
+    --sidebar-accent: 46 51% 88%;
+    --sidebar-accent-foreground: 108 13% 13%;
+    --sidebar-border: 46 30% 82%;
+    --sidebar-ring: 89 33% 45%;
   }
 
   .dark {
-    --background: 195 60% 8%;
-    --foreground: 40 20% 95%;
-    --card: 195 50% 11%;
-    --card-foreground: 40 20% 95%;
-    --popover: 195 50% 11%;
-    --popover-foreground: 40 20% 95%;
-    --primary: 192 70% 55%;
-    --primary-foreground: 195 60% 8%;
-    --secondary: 195 30% 18%;
-    --secondary-foreground: 40 20% 95%;
-    --muted: 195 30% 18%;
-    --muted-foreground: 195 20% 65%;
+    /* Fortaleza #1f261d como fondo */
+    --background: 108 13% 13%;
+    --foreground: 24 100% 99%;
+    --card: 108 13% 16%;
+    --card-foreground: 24 100% 99%;
+    --popover: 108 13% 16%;
+    --popover-foreground: 24 100% 99%;
+    /* Conexión luminosa para primary en dark */
+    --primary: 89 38% 55%;
+    --primary-foreground: 108 13% 13%;
+    --primary-glow: 89 45% 65%;
+    /* Legado #40513b para superficies secundarias */
+    --secondary: 100 15% 27%;
+    --secondary-foreground: 24 100% 99%;
+    --muted: 100 12% 22%;
+    --muted-foreground: 46 25% 75%;
     --accent: 28 80% 55%;
-    --accent-foreground: 195 60% 8%;
-    --destructive: 0 60% 40%;
+    --accent-foreground: 108 13% 13%;
+    --destructive: 0 60% 45%;
     --destructive-foreground: 0 0% 98%;
-    --border: 195 30% 22%;
-    --input: 195 30% 22%;
-    --ring: 192 70% 55%;
+    --border: 100 12% 25%;
+    --input: 100 12% 25%;
+    --ring: 89 38% 55%;
   }
 }
 
