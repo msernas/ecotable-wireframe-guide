@@ -1,4 +1,5 @@
 import { WireSection, Lines, PageBanner } from "@/components/wireframe/WireSection";
+import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
 
 const Contacto = () => {
   return (
@@ -111,6 +112,26 @@ const Contacto = () => {
           Acordeones accesibles (aria-expanded, aria-controls).
         </p>
       </WireSection>
+
+      <SeoTechBlock
+        page="Contacto (/contacto)"
+        title="Contacto · Cotiza desechables biodegradables B2B | [Marca]"
+        description="Solicita cotización de empaque compostable para tu hotel, hospital, cafetería o comedor. Atención B2B, muestras gratis y entrega nacional."
+        h1="Contáctanos"
+        schemas={[
+          "ContactPage como tipo principal",
+          "LocalBusiness con address, telephone, openingHoursSpecification",
+          "FAQPage con cada pregunta del bloque FAQ",
+          "BreadcrumbList",
+        ]}
+        notes={[
+          "Vincular Google Business Profile (mismo NAP: nombre, dirección, teléfono)",
+          "Click-to-call en móvil: <a href='tel:+52...'>",
+          "Click-to-WhatsApp: <a href='https://wa.me/52...'>",
+          "Formulario: validación HTML5 nativa + aria-invalid + role='alert' en errores",
+          "Confirmación de envío con role='status' (lector de pantalla)",
+        ]}
+      />
     </>
   );
 };
