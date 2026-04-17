@@ -5,6 +5,12 @@ import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 const Contacto = () => {
   return (
     <>
+      <PageSeoTopBar
+        page="Contacto"
+        url="/contacto"
+        h1="Contáctanos"
+        primaryKeyword="cotizar empaques sustentables"
+      />
       <PageBanner
         breadcrumb="Inicio / Contacto"
         h1="Contáctanos"

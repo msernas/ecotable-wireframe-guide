@@ -6,6 +6,12 @@ import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 const Nosotros = () => {
   return (
     <>
+      <PageSeoTopBar
+        page="Nosotros"
+        url="/nosotros"
+        h1="Renovapack · El futuro se empaca diferente"
+        primaryKeyword="empresa pionera empaques sustentables México"
+      />
       <PageBanner
         breadcrumb="Inicio / Nosotros"
         h1="Renovapack · El futuro se empaca diferente"
