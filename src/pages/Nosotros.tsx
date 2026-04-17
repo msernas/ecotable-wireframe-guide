@@ -184,7 +184,7 @@ const Nosotros = () => {
       {/* CTA */}
       <section className="border-t border-border bg-primary py-14 text-primary-foreground">
         <div className="container max-w-3xl text-center space-y-4">
-          <h2 className="text-2xl font-bold md:text-3xl">¿Listo para empacar distinto?</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">¿Listo para empacar diferente?</h2>
           <p className="text-sm opacity-80">
             Conversa con un asesor Renovapack y descubre cómo podemos integrarnos a tu operación.
           </p>
