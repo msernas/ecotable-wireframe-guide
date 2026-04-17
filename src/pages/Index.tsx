@@ -12,13 +12,34 @@ const Index = () => {
     { name: "Hospitales y comedores", kw: "desechables compostables institucional" },
   ];
 
-  // 4 verdades del workshop Cyan Media Lab
-  const verdades = [
-    { t: "Mercado saturado que diluye valor", d: "La industria del empaque ha crecido con baja diferenciación. Renovapack rompe la lógica del precio con valor integral." },
-    { t: "Liderazgo construido, poco visible", d: "Pioneros con expertise sólido — recuperamos la voz que el mercado dejó de escuchar." },
-    { t: "Entorno exigente y complejo", d: "Materiales sostenibles, regulaciones nuevas, alternativas múltiples. Necesitas un guía, no otro proveedor." },
-    { t: "Brecha entre lo que somos y lo que decimos", d: "Tenemos la propuesta robusta; ahora la comunicamos clara, estructurada y consistente." },
+  // Promociones activas — actualizable desde admin/WooCommerce
+  const promociones = [
+    {
+      badge: "−15%",
+      tag: "HORECA · Hoteles",
+      t: "Kit bioeco recepción & desayuno",
+      d: "Vasos de bagazo + cubiertos PLA + servilletas compostables. Pedido mínimo 5 cajas.",
+      vence: "Vigente hasta 30 jun 2026",
+      cta: "Cotizar kit",
+    },
+    {
+      badge: "2x1",
+      tag: "Cafeterías",
+      t: "Vasos compostables 12oz",
+      d: "Lleva 2 cajas (2,000 pzs) y paga 1. Ideal para cadenas de café especialidad.",
+      vence: "Vigente hasta 31 may 2026",
+      cta: "Aprovechar",
+    },
+    {
+      badge: "Envío gratis",
+      tag: "Primera compra",
+      t: "Diagnóstico + muestras sin costo",
+      d: "Cotización personalizada por volumen, muestras gratis y envío nacional incluido en tu primer pedido.",
+      vence: "Promoción permanente para nuevos clientes B2B",
+      cta: "Solicitar muestras",
+    },
   ];
+
 
   const stories = [
     { tag: "Caso de éxito HORECA", h: "Cadena hotelera reduce 40% de plástico de un solo uso con Renovapack", m: "5 min lectura" },
