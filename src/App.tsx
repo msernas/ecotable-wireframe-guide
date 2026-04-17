@@ -27,9 +27,9 @@ const ScrollToTop = () => {
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <div className="flex min-h-screen flex-col">
-    <div className="border-b border-border bg-muted">
-      <div className="container py-2 text-center text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
-        Wireframe baja fidelidad · Guía para diseñador · No es diseño final
+    <div className="border-b border-border bg-primary text-primary-foreground">
+      <div className="container py-2 text-center text-[11px] font-mono uppercase tracking-widest">
+        Wireframe Renovapack 2026 · Estrategia Cyan Media Lab · El futuro se empaca distinto
       </div>
     </div>
     <SiteHeader />
