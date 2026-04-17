@@ -13,6 +13,7 @@ import Sectores from "./pages/Sectores.tsx";
 import Nosotros from "./pages/Nosotros.tsx";
 import Contacto from "./pages/Contacto.tsx";
 import RecomendacionesTecnicas from "./pages/RecomendacionesTecnicas.tsx";
+import SeoKeywords from "./pages/SeoKeywords.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/recomendaciones-tecnicas" element={<RecomendacionesTecnicas />} />
+            <Route path="/seo-keywords" element={<SeoKeywords />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
