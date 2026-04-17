@@ -2,82 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Wireframe design system — low-fi grayscale with annotation accents.
-   All colors HSL. Tokens here only. */
+/* Renovapack — Design System (basado en propuesta Cyan Media Lab 2026)
+   Paleta: Innovación #004e64 (teal profundo) + acento Dinámico #e67e22 (naranja)
+   "El futuro se empaca distinto"
+   Todos los colores en HSL. */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 12%;
+    --background: 40 20% 98%;             /* off-white cálido */
+    --foreground: 195 100% 12%;           /* casi negro azulado */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 12%;
+    --card-foreground: 195 100% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 12%;
+    --popover-foreground: 195 100% 12%;
 
-    --primary: 0 0% 20%;
-    --primary-foreground: 0 0% 98%;
+    /* Primary — Innovación #004e64 (teal profundo Renovapack) */
+    --primary: 192 100% 20%;
+    --primary-foreground: 40 20% 98%;
+    --primary-glow: 192 80% 35%;
 
-    --secondary: 0 0% 92%;
-    --secondary-foreground: 0 0% 20%;
+    --secondary: 192 30% 92%;
+    --secondary-foreground: 192 100% 20%;
 
-    --muted: 0 0% 94%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 40 15% 94%;
+    --muted-foreground: 195 25% 35%;
 
-    --accent: 0 0% 88%;
-    --accent-foreground: 0 0% 15%;
+    /* Accent — Dinámico #e67e22 (naranja energético, propuesta 2 Cyan Media Lab) */
+    --accent: 28 80% 52%;
+    --accent-foreground: 40 20% 98%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 80%;
-    --input: 0 0% 85%;
-    --ring: 0 0% 30%;
+    --border: 195 20% 85%;
+    --input: 195 20% 88%;
+    --ring: 192 100% 20%;
 
     --radius: 0.25rem;
 
-    /* Wireframe-specific tokens */
-    --wire-box: 0 0% 90%;
-    --wire-box-border: 0 0% 70%;
-    --wire-label: 0 0% 35%;
-    --wire-annotation: 38 92% 50%;          /* amber for SEO/note callouts */
-    --wire-annotation-bg: 38 92% 95%;
-    --wire-annotation-border: 38 80% 70%;
-    --wire-alt: 200 80% 45%;                /* blue for alt-text callouts */
-    --wire-alt-bg: 200 80% 95%;
-    --wire-alt-border: 200 70% 70%;
+    /* Wireframe-specific tokens (preserved) */
+    --wire-box: 195 15% 92%;
+    --wire-box-border: 195 20% 70%;
+    --wire-label: 195 30% 30%;
+    --wire-annotation: 28 80% 45%;            /* naranja Renovapack para anotaciones SEO */
+    --wire-annotation-bg: 28 80% 95%;
+    --wire-annotation-border: 28 70% 70%;
+    --wire-alt: 192 80% 30%;                  /* teal Renovapack para alt-text */
+    --wire-alt-bg: 192 50% 94%;
+    --wire-alt-border: 192 50% 65%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 40 20% 98%;
+    --sidebar-foreground: 195 25% 26%;
+    --sidebar-primary: 192 100% 20%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 192 30% 95%;
+    --sidebar-accent-foreground: 192 100% 20%;
+    --sidebar-border: 195 20% 88%;
+    --sidebar-ring: 192 100% 35%;
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 0% 95%;
-    --primary-foreground: 0 0% 10%;
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 18%;
-    --accent-foreground: 0 0% 95%;
+    --background: 195 60% 8%;
+    --foreground: 40 20% 95%;
+    --card: 195 50% 11%;
+    --card-foreground: 40 20% 95%;
+    --popover: 195 50% 11%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 192 70% 55%;
+    --primary-foreground: 195 60% 8%;
+    --secondary: 195 30% 18%;
+    --secondary-foreground: 40 20% 95%;
+    --muted: 195 30% 18%;
+    --muted-foreground: 195 20% 65%;
+    --accent: 28 80% 55%;
+    --accent-foreground: 195 60% 8%;
     --destructive: 0 60% 40%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 22%;
-    --input: 0 0% 22%;
-    --ring: 0 0% 70%;
+    --border: 195 30% 22%;
+    --input: 195 30% 22%;
+    --ring: 192 70% 55%;
   }
 }
 
@@ -89,6 +94,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    /* Tipografía sugerida en propuesta Cyan Media Lab: familias Chillax (display) + Synonym (body).
+       En wireframe se mantiene system stack para enfoque en estructura, no estética. */
   }
 }
 
@@ -132,7 +139,13 @@
 
   .wire-section-tag {
     @apply inline-block text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded;
-    background: hsl(var(--foreground));
-    color: hsl(var(--background));
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* Renovapack — bloque tagline */
+  .renovapack-tagline {
+    @apply font-bold uppercase tracking-tight;
+    color: hsl(var(--primary));
   }
 }
