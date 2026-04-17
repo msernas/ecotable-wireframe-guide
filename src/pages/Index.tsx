@@ -50,6 +50,12 @@ const Index = () => {
 
   return (
     <>
+      <PageSeoTopBar
+        page="Home"
+        url="/"
+        h1="El futuro se empaca diferente"
+        primaryKeyword="empaques sustentables México"
+      />
       {/* HERO editorial — narrativa "El futuro se empaca diferente" */}
       <section className="border-b border-border bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
         <div className="container grid gap-8 py-20 md:grid-cols-[1.1fr_1fr] md:items-center">
