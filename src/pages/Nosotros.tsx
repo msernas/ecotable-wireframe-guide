@@ -7,8 +7,8 @@ const Nosotros = () => {
     <>
       <PageBanner
         breadcrumb="Inicio / Nosotros"
-        h1="Renovapack · El futuro se empaca distinto"
-        intro="Solución integral de empaque desechable y biodegradable para HORECA y B2B en México. No vendemos cajas — entregamos servicio, expertise y aliados estratégicos."
+        h1="Renovapack · El futuro se empaca diferente"
+        intro="Pioneros en empaque desechable y biodegradable. Aliados que guían decisiones para HORECA y B2B en México: producto, expertise y logística en una sola conversación."
       />
 
       {/* BRAND STORY — narrativa Cyan Media Lab */}
@@ -22,34 +22,66 @@ const Nosotros = () => {
           </div>
 
           <div className="space-y-6 text-base leading-relaxed text-foreground">
-            <p className="text-xl font-medium text-primary">
-              Entre tantas opciones, materiales y promesas, es difícil elegir.
+            <p>
+              En un entorno en el que la industria del empaque toma fuerza, y más que ser un insumo, se convierte en una decisión estratégica que impacta la operación, la marca y la huella que dejamos. Evolucionar sin riesgo no es tan simple: entre tantas opciones, materiales y promesas, es difícil elegir.
             </p>
             <p>
-              La industria del empaque ha crecido aceleradamente. La demanda de soluciones sustentables aumenta cada día, las regulaciones cambian y aparecen materiales nuevos cada mes. Para un hotel, una cafetería o un restaurante, decidir qué empaque comprar dejó de ser una decisión simple — se convirtió en un problema operativo, financiero y reputacional.
+              <strong className="text-primary">En Renovapack entendimos que el cambio no era una tendencia, era una necesidad.</strong>
             </p>
             <p>
-              <strong className="text-primary">En Renovapack entendimos que el cambio no era una tendencia, era una necesidad.</strong> Por eso construimos algo que no existía: una solución integral donde el material, la operación y la logística viven en una sola conversación. Donde no eliges entre precio o servicio. Donde tu proveedor entiende tu sector.
+              Hicimos que la sostenibilidad funcione en la práctica, para que cada decisión se convierta en resultado.
             </p>
             <p>
-              Cuando el mercado entero compite por precio, nosotros competimos por valor. Cuando otros entregan cajas, nosotros entregamos relaciones. Cuando hay confusión, ofrecemos guía.
+              Fuimos pioneros. Y seguimos evolucionando. Porque cuando entiendes lo que viene, no solo te adaptas: lo construyes.
             </p>
-            <p className="renovapack-tagline text-2xl md:text-3xl pt-4 text-center">
-              El futuro se empaca distinto.
+            <p className="text-center text-muted-foreground italic pt-2">Por eso decimos que…</p>
+            <p className="renovapack-tagline text-2xl md:text-3xl pt-2 text-center uppercase tracking-wide">
+              El futuro se empaca diferente
             </p>
           </div>
         </div>
       </section>
 
-      {/* QUOTE INTERNO */}
-      <section className="border-b border-border bg-primary py-12 text-primary-foreground">
-        <div className="container max-w-3xl text-center space-y-3">
-          <blockquote className="text-2xl font-semibold leading-snug md:text-3xl">
-            "Hay clientes que nos dejan por precio<br />y regresan por servicio."
-          </blockquote>
-          <div className="text-xs uppercase tracking-widest text-accent">— Equipo Renovapack · Workshop 2026</div>
+      {/* POSICIONAMIENTO — 6 pilares */}
+      <WireSection tag="· Posicionamiento" title="Posicionamiento de la marca Renovapack">
+        <p className="mb-6 max-w-3xl text-muted-foreground">
+          Comunicar de forma clara y consistente qué es Renovapack, qué hace y por qué es importante.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              t: "Liderazgo respaldado por experiencia",
+              d: "Renovapack no es nuevo en la categoría: fue pionero y hoy sigue siendo un referente en la industria, gracias a su conocimiento y trayectoria.",
+            },
+            {
+              t: "Aliado que guía decisiones",
+              d: "No solo somos un proveedor; somos un aliado que ayuda a entender, elegir y resolver mejor las necesidades de empaque.",
+            },
+            {
+              t: "Sustentabilidad clara, real y sin confusión",
+              d: "En un mercado saturado de mensajes amigables con el ambiente, Renovapack comunica con transparencia cómo funcionan realmente sus soluciones.",
+            },
+            {
+              t: "Soluciones más allá del producto",
+              d: "Renovapack no se limita a desechables: ofrece soluciones de empaque integrales para empresas y nuevas industrias.",
+            },
+            {
+              t: "Capacidad que cumple",
+              d: "Más allá de un empaque, somos una empresa con infraestructura logística y experiencia para ejecutar proyectos de cualquier escala.",
+            },
+            {
+              t: "Comunicación clara y consistente",
+              d: "Cada mensaje refuerza qué es Renovapack, qué hace y por qué importa — sin promesas vacías ni ruido de mercado.",
+            },
+          ].map((p, i) => (
+            <div key={p.t} className="space-y-2 rounded border border-border bg-card p-5">
+              <div className="text-xs font-mono text-accent">0{i + 1}</div>
+              <h3 className="text-base font-semibold text-primary">{p.t}</h3>
+              <p className="text-sm text-muted-foreground">{p.d}</p>
+            </div>
+          ))}
         </div>
-      </section>
+      </WireSection>
 
       {/* MISIÓN / VISIÓN / VALORES — extraídos de propuesta */}
       <WireSection tag="01 · Pilares" title="Misión, visión y valores Renovapack">
@@ -152,7 +184,7 @@ const Nosotros = () => {
       {/* CTA */}
       <section className="border-t border-border bg-primary py-14 text-primary-foreground">
         <div className="container max-w-3xl text-center space-y-4">
-          <h2 className="text-2xl font-bold md:text-3xl">¿Listo para empacar distinto?</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">¿Listo para empacar diferente?</h2>
           <p className="text-sm opacity-80">
             Conversa con un asesor Renovapack y descubre cómo podemos integrarnos a tu operación.
           </p>
@@ -169,9 +201,9 @@ const Nosotros = () => {
 
       <SeoTechBlock
         page="Nosotros (/nosotros)"
-        title="Renovapack · Solución integral de empaque B2B en México"
-        description="Conoce a Renovapack: brand story, misión, sub-marca bioeco y equipo. Empaque biodegradable y desechable para HORECA. El futuro se empaca distinto."
-        h1="Renovapack · El futuro se empaca distinto"
+        title="Renovapack · Pioneros en empaque sustentable B2B en México"
+        description="Conoce a Renovapack: pioneros y referentes en empaque desechable y biodegradable. Aliados que guían decisiones HORECA y B2B. El futuro se empaca diferente."
+        h1="Renovapack · El futuro se empaca diferente"
         schemas={[
           "Organization (Renovapack — foundingDate, address, sameAs)",
           "Brand (Renovapack como Brand principal, bioeco como Brand anidada)",
