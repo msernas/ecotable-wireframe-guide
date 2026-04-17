@@ -79,9 +79,9 @@ const SiteFooter = () => {
       {/* Columnas principales */}
       <div className="container grid gap-8 py-12 md:grid-cols-6">
         <div className="space-y-3 md:col-span-1">
-          <div className="wire-box h-10 w-28 !border-solid">LOGO</div>
+          <div className="font-bold text-primary text-lg tracking-tight">renovapack<span className="text-accent">®</span></div>
           <p className="text-xs text-muted-foreground">
-            Comercializadora de desechables biodegradables y compostables para el sector B2B.
+            El futuro se empaca distinto. Solución integral de empaque desechable y biodegradable bioeco para HORECA y B2B en México.
           </p>
           <div className="flex gap-2 pt-2">
             {["LI", "FB", "IG", "YT"].map((s) => (
@@ -122,7 +122,7 @@ const SiteFooter = () => {
       {/* Legal */}
       <div className="border-t border-border py-5">
         <div className="container flex flex-col items-center justify-between gap-3 text-[11px] text-muted-foreground md:flex-row">
-          <div>© {new Date().getFullYear()} [Marca] · Todos los derechos reservados</div>
+          <div>© {new Date().getFullYear()} Renovapack · Todos los derechos reservados</div>
           <ul className="flex flex-wrap items-center gap-4">
             <li><Link to="/legal/privacidad" className="hover:text-foreground">Aviso de privacidad</Link></li>
             <li><Link to="/legal/cookies" className="hover:text-foreground">Cookies</Link></li>

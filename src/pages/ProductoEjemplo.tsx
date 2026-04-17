@@ -238,7 +238,7 @@ const ProductoEjemplo = () => {
 
       <SeoTechBlock
         page="Ficha de producto (/catalogo/vaso-bagazo-12oz)"
-        title="Vaso compostable bagazo trigo 12 oz B2B mayoreo | [Marca]"
+        title="Vaso compostable bagazo trigo 12 oz B2B mayoreo | Renovapack"
         description="Vaso 100% compostable de bagazo de trigo 12 oz (355 ml). Resiste 100 °C, certificado TÜV + BPI. Mayoreo B2B desde $1.57 MXN/pieza. Entrega nacional MX."
         h1="Vaso compostable de bagazo de trigo 12 oz — Caliente, B2B"
         schemas={[
