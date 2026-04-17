@@ -12,13 +12,34 @@ const Index = () => {
     { name: "Hospitales y comedores", kw: "desechables compostables institucional" },
   ];
 
-  // 4 verdades del workshop Cyan Media Lab
-  const verdades = [
-    { t: "Mercado saturado que diluye valor", d: "La industria del empaque ha crecido con baja diferenciación. Renovapack rompe la lógica del precio con valor integral." },
-    { t: "Liderazgo construido, poco visible", d: "Pioneros con expertise sólido — recuperamos la voz que el mercado dejó de escuchar." },
-    { t: "Entorno exigente y complejo", d: "Materiales sostenibles, regulaciones nuevas, alternativas múltiples. Necesitas un guía, no otro proveedor." },
-    { t: "Brecha entre lo que somos y lo que decimos", d: "Tenemos la propuesta robusta; ahora la comunicamos clara, estructurada y consistente." },
+  // Promociones activas — actualizable desde admin/WooCommerce
+  const promociones = [
+    {
+      badge: "−15%",
+      tag: "HORECA · Hoteles",
+      t: "Kit bioeco recepción & desayuno",
+      d: "Vasos de bagazo + cubiertos PLA + servilletas compostables. Pedido mínimo 5 cajas.",
+      vence: "Vigente hasta 30 jun 2026",
+      cta: "Cotizar kit",
+    },
+    {
+      badge: "2x1",
+      tag: "Cafeterías",
+      t: "Vasos compostables 12oz",
+      d: "Lleva 2 cajas (2,000 pzs) y paga 1. Ideal para cadenas de café especialidad.",
+      vence: "Vigente hasta 31 may 2026",
+      cta: "Aprovechar",
+    },
+    {
+      badge: "Envío gratis",
+      tag: "Primera compra",
+      t: "Diagnóstico + muestras sin costo",
+      d: "Cotización personalizada por volumen, muestras gratis y envío nacional incluido en tu primer pedido.",
+      vence: "Promoción permanente para nuevos clientes B2B",
+      cta: "Solicitar muestras",
+    },
   ];
+
 
   const stories = [
     { tag: "Caso de éxito HORECA", h: "Cadena hotelera reduce 40% de plástico de un solo uso con Renovapack", m: "5 min lectura" },
@@ -196,29 +217,56 @@ const Index = () => {
         </p>
       </WireSection>
 
-      {/* CONTEXTO — 4 verdades del mercado */}
-      <section className="border-y border-border bg-muted/40 py-14">
+      {/* PROMOCIONES — sección destacada */}
+      <section className="border-y-2 border-accent bg-gradient-to-br from-accent/10 via-background to-secondary/30 py-14">
         <div className="container space-y-8">
-          <div className="max-w-2xl space-y-3">
-            <div className="text-[11px] font-mono uppercase tracking-widest text-accent">
-              Por qué cambiar ahora
-            </div>
-            <h2 className="text-2xl font-bold text-primary md:text-3xl">
-              El reto no es lo que hacemos.<br />Es cómo el mercado dejó de verlo.
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              4 verdades que identificamos con el equipo Renovapack — y que nuestra comunicación 2026 viene a resolver.
-            </p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            {verdades.map((v, i) => (
-              <div key={v.t} className="space-y-2 rounded border border-border bg-card p-5">
-                <div className="text-xs font-mono text-accent">0{i + 1}</div>
-                <h3 className="text-base font-semibold text-primary">{v.t}</h3>
-                <p className="text-sm text-muted-foreground">{v.d}</p>
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl space-y-3">
+              <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
+                Promociones activas · Renovapack
               </div>
+              <h2 className="text-2xl font-bold text-primary md:text-3xl">
+                Ofertas vigentes para clientes B2B
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Promociones por volumen, kits sectoriales y beneficios para nuevos clientes HORECA. Aprovéchalas antes de que venzan.
+              </p>
+            </div>
+            <Link to="/promociones" className="text-xs font-semibold uppercase tracking-wider text-accent underline underline-offset-4">
+              Ver todas las promociones →
+            </Link>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {promociones.map((p) => (
+              <article key={p.t} className="relative flex flex-col overflow-hidden rounded-lg border-2 border-accent/40 bg-card shadow-sm transition-all hover:border-accent hover:shadow-lg">
+                <div className="absolute right-3 top-3 z-10 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground shadow">
+                  {p.badge}
+                </div>
+                <div className="wire-box aspect-[16/10] !rounded-none !border-x-0 !border-t-0 !border-b border-accent/30">
+                  IMAGEN PROMOCIÓN
+                </div>
+                <div className="flex flex-1 flex-col gap-3 p-5">
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-accent">
+                    {p.tag}
+                  </div>
+                  <h3 className="text-lg font-semibold leading-snug text-primary">{p.t}</h3>
+                  <p className="text-sm text-muted-foreground">{p.d}</p>
+                  <div className="mt-auto flex items-center justify-between border-t border-border pt-3">
+                    <span className="text-[11px] italic text-muted-foreground">{p.vence}</span>
+                    <Link to="/contacto" className="text-xs font-semibold uppercase tracking-wider text-accent hover:underline">
+                      {p.cta} →
+                    </Link>
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
+
+          <p className="wire-note">
+            Estrategia · Sección de promociones para incentivar conversión B2B (cotización, muestras). Compatible con WooCommerce: cada tarjeta puede mapearse a un cupón/producto destacado actualizable desde el admin.
+          </p>
         </div>
       </section>
 
@@ -308,7 +356,7 @@ const Index = () => {
           "Foco SEO HORECA: keywords 'empaque biodegradable hoteles', 'desechables compostables restaurantes', 'vasos compostables cafetería'",
           "Hreflang: es-MX (default), es, en con x-default a es-MX",
           "Imagen LCP del hero precargada + width/height explícitos",
-          "Brand Story estructurada: contexto → 4 verdades → diferenciadores → tagline",
+          "Brand Story estructurada: contexto → posicionamiento → diferenciadores → promociones → tagline",
         ]}
       />
     </>
