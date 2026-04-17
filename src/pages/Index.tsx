@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { WireSection, Lines } from "@/components/wireframe/WireSection";
 import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
+import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 
 const Index = () => {
   // Sectores priorizados según estrategia Cyan Media Lab: foco HORECA primero
