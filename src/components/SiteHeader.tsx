@@ -93,8 +93,8 @@ const SiteHeader = () => {
         onMouseLeave={() => setOpenMega(null)}
       >
         <div className="container flex h-16 items-center justify-between gap-4">
-          <Link to="/" aria-label="Inicio" className="wire-box h-10 w-28 !border-solid">
-            LOGO
+          <Link to="/" aria-label="Inicio Renovapack" className="flex h-10 items-center px-3 font-bold text-primary text-lg tracking-tight">
+            renovapack<span className="text-accent">®</span>
           </Link>
           <nav aria-label="Principal" className="hidden gap-1 md:flex">
             {mainLinks.map((l) => (
@@ -118,8 +118,8 @@ const SiteHeader = () => {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <Link to="/contacto" className="wire-box h-9 w-32 !border-solid text-xs">
-              CTA: Cotizar
+            <Link to="/contacto" className="inline-flex h-9 items-center rounded bg-accent px-4 text-xs font-semibold uppercase tracking-wider text-accent-foreground hover:opacity-90">
+              Cotizar
             </Link>
           </div>
         </div>

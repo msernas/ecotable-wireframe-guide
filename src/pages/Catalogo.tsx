@@ -260,7 +260,7 @@ const Catalogo = () => {
 
       <SeoTechBlock
         page="Catálogo (/catalogo)"
-        title="Desechables biodegradables y compostables B2B | Catálogo [Marca]"
+        title="Desechables biodegradables y compostables B2B | Catálogo Renovapack"
         description="Catálogo de 90+ productos compostables certificados: contenedores, vasos, cubiertos, platos y bolsas de bagazo, PLA y fécula. Mayoreo B2B, entrega nacional MX."
         h1="Catálogo de desechables biodegradables y compostables B2B"
         schemas={[

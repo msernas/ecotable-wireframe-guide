@@ -233,7 +233,7 @@ const RecomendacionesTecnicas = () => {
 
       <SeoTechBlock
         page="Recomendaciones técnicas (/recomendaciones-tecnicas)"
-        title="Stack WooCommerce + SEO para catálogo B2B | [Marca]"
+        title="Stack WooCommerce + SEO para catálogo B2B | Renovapack"
         description="Documentación técnica del stack WordPress + WooCommerce + Rank Math elegido para construir el catálogo B2B y maximizar ranking orgánico."
         h1="Stack técnico recomendado: WooCommerce + SEO"
         schemas={[

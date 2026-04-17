@@ -49,7 +49,7 @@ const Contacto = () => {
               <div className="mb-3 text-sm font-semibold">Datos de contacto</div>
               <ul className="space-y-2 text-xs text-muted-foreground">
                 <li>📞 +52 (00) 0000-0000</li>
-                <li>✉ ventas@[marca].com</li>
+                <li>✉ ventas@renovapack.com</li>
                 <li>💬 WhatsApp: +52 (00) 0000-0000</li>
                 <li>🕐 Lun – Vie · 9:00 – 18:00</li>
                 <li>📍 [Dirección, Ciudad, Estado, CP]</li>
@@ -59,7 +59,7 @@ const Contacto = () => {
             <div className="wire-box h-56">MAPA EMBED (Google Maps)</div>
             <p className="wire-alt">
               IMAGEN: iframe de Google Maps con la ubicación, o imagen estática como fallback.
-              alt="Mapa de ubicación de [marca] en [ciudad]". loading="lazy" en el iframe.
+              alt="Mapa de ubicación de renovapack en [ciudad]". loading="lazy" en el iframe.
             </p>
 
             <div className="rounded border border-border bg-card p-5">
@@ -115,7 +115,7 @@ const Contacto = () => {
 
       <SeoTechBlock
         page="Contacto (/contacto)"
-        title="Contacto · Cotiza desechables biodegradables B2B | [Marca]"
+        title="Contacto · Cotiza desechables biodegradables B2B | Renovapack"
         description="Solicita cotización de empaque compostable para tu hotel, hospital, cafetería o comedor. Atención B2B, muestras gratis y entrega nacional."
         h1="Contáctanos"
         schemas={[
