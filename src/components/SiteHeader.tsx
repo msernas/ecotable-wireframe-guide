@@ -75,6 +75,7 @@ const SiteHeader = () => {
         <div className="container flex h-9 items-center justify-end gap-5 text-[11px] text-muted-foreground">
           <Link to="/blog" className="hover:text-foreground">Blog & Recursos</Link>
           <Link to="/sustentabilidad" className="hover:text-foreground">Sustentabilidad</Link>
+          <Link to="/recomendaciones-tecnicas" className="hover:text-foreground">Stack técnico</Link>
           <Link to="/inversionistas" className="hover:text-foreground">Distribuidores</Link>
           <Link to="/prensa" className="hover:text-foreground">Prensa</Link>
           <span className="h-4 w-px bg-border" />

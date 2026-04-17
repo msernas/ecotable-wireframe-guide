@@ -39,9 +39,9 @@ const SiteFooter = () => {
         { label: "Nosotros", to: "/nosotros" },
         { label: "Sustentabilidad", to: "/sustentabilidad" },
         { label: "Blog & Recursos", to: "/blog" },
+        { label: "Stack técnico", to: "/recomendaciones-tecnicas" },
         { label: "Distribuidores", to: "/inversionistas" },
         { label: "Prensa", to: "/prensa" },
-        { label: "Carreras", to: "/carreras" },
       ],
     },
     {

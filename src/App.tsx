@@ -8,9 +8,11 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Index from "./pages/Index.tsx";
 import Catalogo from "./pages/Catalogo.tsx";
+import ProductoEjemplo from "./pages/ProductoEjemplo.tsx";
 import Sectores from "./pages/Sectores.tsx";
 import Nosotros from "./pages/Nosotros.tsx";
 import Contacto from "./pages/Contacto.tsx";
+import RecomendacionesTecnicas from "./pages/RecomendacionesTecnicas.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -47,9 +49,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/catalogo" element={<Catalogo />} />
+            <Route path="/catalogo/vaso-bagazo-12oz" element={<ProductoEjemplo />} />
             <Route path="/sectores" element={<Sectores />} />
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contacto />} />
+            <Route path="/recomendaciones-tecnicas" element={<RecomendacionesTecnicas />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
