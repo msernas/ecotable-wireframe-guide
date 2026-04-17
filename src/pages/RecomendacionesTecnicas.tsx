@@ -109,6 +109,12 @@ const competidoresAnalisis = [
 const RecomendacionesTecnicas = () => {
   return (
     <>
+      <PageSeoTopBar
+        page="Recomendaciones técnicas"
+        url="/recomendaciones-tecnicas"
+        h1="Stack técnico recomendado: WooCommerce + SEO"
+        primaryKeyword="guía técnica empaques compostables"
+      />
       <PageBanner
         breadcrumb="Inicio / Recomendaciones técnicas"
         h1="Stack técnico recomendado: WooCommerce + SEO"
