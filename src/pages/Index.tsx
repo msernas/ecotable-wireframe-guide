@@ -36,10 +36,10 @@ const Index = () => {
               Renovapack · Soluciones de empaque B2B · HORECA
             </div>
             <h1 className="text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              El futuro <br />se empaca <span className="text-accent">distinto.</span>
+              El futuro <br />se empaca <span className="text-accent">diferente.</span>
             </h1>
             <p className="max-w-xl text-base opacity-90 md:text-lg">
-              Soluciones integrales en empaque desechable y biodegradable para hoteles, restaurantes y cafeterías. No solo entregamos producto — entregamos servicio, expertise y logística.
+              Pioneros en empaque desechable y biodegradable. Más que un proveedor: un aliado que guía tus decisiones de empaque con expertise, sustentabilidad real y capacidad logística para cualquier escala.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link to="/catalogo" className="inline-flex h-12 items-center gap-2 rounded bg-accent px-6 text-sm font-semibold uppercase tracking-wider text-accent-foreground hover:opacity-90">
@@ -50,7 +50,7 @@ const Index = () => {
               </Link>
             </div>
             <p className="wire-note !bg-primary-foreground/10 !text-primary-foreground/80 !border-accent">
-              Estrategia Cyan Media Lab · H1 con tagline maestro "El futuro se empaca distinto" + sub-claim funcional. CTA primario al catálogo, secundario a cotización HORECA.
+              Estrategia Cyan Media Lab · H1 con slogan maestro "El futuro se empaca diferente" + sub-claim de posicionamiento (pionero + aliado). CTA primario al catálogo, secundario a cotización HORECA.
             </p>
           </div>
           <div className="space-y-3">
@@ -67,16 +67,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* QUOTE INSIGHT — del workshop Cyan Media Lab */}
+      {/* MANIFIESTO — fragmento brand story */}
       <section className="border-b border-border bg-background py-14">
         <div className="container max-w-4xl text-center space-y-4">
           <div className="text-[11px] font-mono uppercase tracking-widest text-accent">
-            Insight Cyan Media Lab · Workshop Renovapack
+            Manifiesto Renovapack
           </div>
           <blockquote className="text-2xl font-semibold leading-snug text-primary md:text-3xl">
-            "Hay clientes que nos dejan por precio<br />y regresan por servicio."
+            "Hicimos que la sostenibilidad funcione en la práctica,<br />para que cada decisión se convierta en resultado."
           </blockquote>
-          <div className="text-xs uppercase tracking-widest text-muted-foreground">— Equipo Renovapack</div>
+          <div className="text-xs uppercase tracking-widest text-muted-foreground">— Brand Story Renovapack</div>
         </div>
       </section>
 
@@ -274,7 +274,7 @@ const Index = () => {
           <div className="space-y-3">
             <div className="text-[11px] font-mono uppercase tracking-widest text-accent">Renovapack 2026</div>
             <h2 className="text-3xl font-bold md:text-4xl">
-              El futuro se empaca distinto.<br />Empieza hoy con un diagnóstico gratis.
+              El futuro se empaca diferente.<br />Empieza hoy con un diagnóstico gratis.
             </h2>
             <p className="text-sm opacity-80">
               Muestras sin costo + propuesta por volumen para tu primera operación HORECA.
@@ -294,8 +294,8 @@ const Index = () => {
       <SeoTechBlock
         page="Inicio (/)"
         title="Renovapack · Empaque biodegradable B2B HORECA en México"
-        description="El futuro se empaca distinto. Renovapack: solución integral de empaque desechable y biodegradable bioeco para hoteles, restaurantes, cafeterías y empresas. Cotización B2B nacional."
-        h1="El futuro se empaca distinto"
+        description="El futuro se empaca diferente. Renovapack: pioneros en empaque desechable y biodegradable bioeco para hoteles, restaurantes, cafeterías y empresas. Cotización B2B nacional."
+        h1="El futuro se empaca diferente"
         schemas={[
           "Organization (Renovapack — logo, address, sameAs, contactPoint)",
           "Brand (sub-marca bioeco como Brand anidada)",
@@ -304,7 +304,7 @@ const Index = () => {
           "ItemList (sectores HORECA + categorías)",
         ]}
         notes={[
-          "Tagline maestro 'El futuro se empaca distinto' como H1 + slogan en og:title",
+          "Slogan maestro 'El futuro se empaca diferente' como H1 + en og:title",
           "Foco SEO HORECA: keywords 'empaque biodegradable hoteles', 'desechables compostables restaurantes', 'vasos compostables cafetería'",
           "Hreflang: es-MX (default), es, en con x-default a es-MX",
           "Imagen LCP del hero precargada + width/height explícitos",

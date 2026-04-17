@@ -81,7 +81,7 @@ const SiteFooter = () => {
         <div className="space-y-3 md:col-span-1">
           <div className="font-bold text-primary text-lg tracking-tight">renovapack<span className="text-accent">®</span></div>
           <p className="text-xs text-muted-foreground">
-            El futuro se empaca distinto. Solución integral de empaque desechable y biodegradable bioeco para HORECA y B2B en México.
+            El futuro se empaca diferente. Pioneros en empaque desechable y biodegradable bioeco para HORECA y B2B en México.
           </p>
           <div className="flex gap-2 pt-2">
             {["LI", "FB", "IG", "YT"].map((s) => (
