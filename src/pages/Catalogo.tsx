@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { WireSection, Lines, PageBanner } from "@/components/wireframe/WireSection";
 import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
+import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 
 const materialesComparativa = [
   { material: "Bagazo de trigo", origen: "Residuo agrícola del trigo", uso: "Platos, contenedores, bowls calientes", temp: "Hasta 100 °C", compostaje: "60-90 días industrial", cert: "TÜV OK Compost, BPI" },
