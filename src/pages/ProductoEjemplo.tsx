@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { WireSection, PageBanner } from "@/components/wireframe/WireSection";
 import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
+import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 
 const specs = [
   { label: "Capacidad", value: "12 oz / 355 ml" },
@@ -36,6 +37,12 @@ const faqs = [
 const ProductoEjemplo = () => {
   return (
     <>
+      <PageSeoTopBar
+        page="Producto · Vaso bagazo 12oz"
+        url="/catalogo/vaso-bagazo-12oz"
+        h1="Vaso compostable de bagazo de trigo 12 oz — Caliente, B2B"
+        primaryKeyword="vaso bagazo 12oz compostable"
+      />
       <PageBanner
         breadcrumb="Inicio / Catálogo / Vasos / Vaso compostable de bagazo 12 oz"
         h1="Vaso compostable de bagazo de trigo 12 oz — Caliente, B2B"

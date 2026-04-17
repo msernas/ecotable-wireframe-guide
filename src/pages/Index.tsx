@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { WireSection, Lines } from "@/components/wireframe/WireSection";
 import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
+import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 
 const Index = () => {
   // Sectores priorizados según estrategia Cyan Media Lab: foco HORECA primero
@@ -49,6 +50,12 @@ const Index = () => {
 
   return (
     <>
+      <PageSeoTopBar
+        page="Home"
+        url="/"
+        h1="El futuro se empaca diferente"
+        primaryKeyword="empaques sustentables México"
+      />
       {/* HERO editorial — narrativa "El futuro se empaca diferente" */}
       <section className="border-b border-border bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
         <div className="container grid gap-8 py-20 md:grid-cols-[1.1fr_1fr] md:items-center">

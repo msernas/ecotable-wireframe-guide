@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { WireSection, Lines, PageBanner } from "@/components/wireframe/WireSection";
 import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
+import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
 
 // Sectores priorizados según estrategia Cyan Media Lab: HORECA primero
 const sectoresHoreca = [
@@ -42,6 +43,12 @@ const sectoresIndustriales = [
 const Sectores = () => {
   return (
     <>
+      <PageSeoTopBar
+        page="Sectores"
+        url="/sectores"
+        h1="Soluciones por sector · Foco HORECA"
+        primaryKeyword="empaques sustentables HORECA"
+      />
       <PageBanner
         breadcrumb="Inicio / Sectores"
         h1="Soluciones por sector · Foco HORECA"
