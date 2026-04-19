@@ -124,66 +124,60 @@ const Index = () => {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section style={{ background: "#1f261d", minHeight: "88vh", display: "flex", alignItems: "center", padding: "80px 0 64px" }}>
-        <div className="container">
-          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "32px", alignItems: "center", overflow: "visible" }}>
-            <div>
-              <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
-                Renovapack · Empaque B2B · HORECA · México
-              </div>
-              {/* Hidden H1 for SEO — Google indexes this, humans see the animated version */}
-              <span className="sr-only" aria-hidden="false" role="heading" aria-level={1}>
-                El Futuro se Empaca Distinto. Renovapack — desechables biodegradables.
-              </span>
-              <p aria-hidden="true" style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.45, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "28px" }}>
-                El futuro<br />
-                <span style={{ background: "#2e3a2b", color: "#e5d9b6", padding: "2px 16px 6px", borderRadius: "10px", display: "inline" }}>
-                  se empaca
-                </span>
-                <br />
-                <AnimatedWord />
-              </p>
-              <p style={{ fontSize: "18px", color: "#8aab7a", lineHeight: 1.7, maxWidth: "480px", marginBottom: "40px" }}>
-                Pioneros en empaque desechable y biodegradable. Más que un proveedor: un aliado que guía tus decisiones con expertise, sustentabilidad real y logística para cualquier escala.
-              </p>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <Link
-                  to="/catalogo"
-                  style={{ display: "inline-flex", alignItems: "center", height: "52px", background: "#e67e22", color: "#1f261d", padding: "0 28px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
-                >
-                  Explorar catálogo →
-                </Link>
-                <Link
-                  to="/contacto"
-                  style={{ display: "inline-flex", alignItems: "center", height: "52px", border: "1.5px solid rgba(255,255,255,0.25)", color: "#fffbf8", padding: "0 28px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
-                >
-                  Solicitar cotización
-                </Link>
-              </div>
-              {/* Cert strip */}
-              <div style={{ display: "flex", alignItems: "center", gap: "16px", marginTop: "48px", flexWrap: "wrap" }}>
-                <span style={{ fontSize: "10px", color: "#4a6045", textTransform: "uppercase", letterSpacing: "0.1em" }}>Certificados</span>
-                {certs.map((c) => (
-                  <span key={c} style={{ fontSize: "11px", fontWeight: 600, color: "#8aab7a", padding: "4px 10px", border: "0.5px solid #3d4e3a", borderRadius: "4px" }}>
-                    {c}
-                  </span>
-                ))}
-              </div>
+      <section style={{ background: "#1f261d", minHeight: "90vh", position: "relative", display: "flex", alignItems: "center", overflow: "hidden" }}>
+        {/* Text content */}
+        <div className="container" style={{ position: "relative", zIndex: 2 }}>
+          <div style={{ maxWidth: "560px" }}>
+            <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
+              Renovapack · Empaque B2B · HORECA · México
             </div>
-            {/* Hero image composition */}
-            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: "680px", overflow: "visible" }}>
-              <div style={{ position: "absolute", top: "55%", left: "10%", right: "0%", bottom: "0%", background: "#2e3a2b", borderRadius: "24px 0 0 24px" }} aria-hidden="true" />
-              <img
-                src="/hero.png"
-                alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "absolute", bottom: "0", left: "-20%", width: "280%", objectFit: "contain" }}
-              />
-              <div style={{ position: "absolute", bottom: "24px", right: "0px", background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
-                <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
-                <div style={{ fontSize: "20px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1.1 }}>Todo México</div>
-              </div>
+            <span className="sr-only" aria-hidden="false" role="heading" aria-level={1}>
+              El Futuro se Empaca Distinto. Renovapack — desechables biodegradables.
+            </span>
+            <p aria-hidden="true" style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.45, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "28px" }}>
+              El futuro<br />
+              <span style={{ background: "#2e3a2b", color: "#e5d9b6", padding: "2px 16px 6px", borderRadius: "10px", display: "inline" }}>
+                se empaca
+              </span>
+              <br />
+              <AnimatedWord />
+            </p>
+            <p style={{ fontSize: "18px", color: "#8aab7a", lineHeight: 1.7, maxWidth: "480px", marginBottom: "40px" }}>
+              Pioneros en empaque desechable y biodegradable. Más que un proveedor: un aliado que guía tus decisiones con expertise, sustentabilidad real y logística para cualquier escala.
+            </p>
+            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+              <Link to="/catalogo" style={{ display: "inline-flex", alignItems: "center", height: "52px", background: "#e67e22", color: "#1f261d", padding: "0 28px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                Explorar catálogo →
+              </Link>
+              <Link to="/contacto" style={{ display: "inline-flex", alignItems: "center", height: "52px", border: "1.5px solid rgba(255,255,255,0.25)", color: "#fffbf8", padding: "0 28px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                Solicitar cotización
+              </Link>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "16px", marginTop: "48px", flexWrap: "wrap" }}>
+              <span style={{ fontSize: "10px", color: "#4a6045", textTransform: "uppercase", letterSpacing: "0.1em" }}>Certificados</span>
+              {certs.map((c) => (
+                <span key={c} style={{ fontSize: "11px", fontWeight: 600, color: "#8aab7a", padding: "4px 10px", border: "0.5px solid #3d4e3a", borderRadius: "4px" }}>
+                  {c}
+                </span>
+              ))}
             </div>
           </div>
+        </div>
+
+        {/* Green rectangle - absolute positioned in section */}
+        <div style={{ position: "absolute", bottom: 0, right: "5%", width: "42%", height: "55%", background: "#2e3a2b", borderRadius: "24px 24px 0 0", zIndex: 1 }} aria-hidden="true" />
+
+        {/* Model image - absolute positioned, fills right side */}
+        <img
+          src="/hero.png"
+          alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
+          style={{ position: "absolute", bottom: 0, right: "0%", height: "100%", width: "50%", objectFit: "contain", objectPosition: "bottom center", zIndex: 2 }}
+        />
+
+        {/* Badge */}
+        <div style={{ position: "absolute", bottom: "32px", right: "2%", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
+          <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
+          <div style={{ fontSize: "20px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1.1 }}>Todo México</div>
         </div>
       </section>
 
