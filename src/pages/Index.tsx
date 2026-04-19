@@ -196,12 +196,12 @@ const Index = () => {
       {/* ── POR QUÉ RENOVAPACK ───────────────────────────────── */}
       <section style={{ background: "#fffbf8", padding: "96px 0" }}>
         <div className="container">
-          <div style={{ maxWidth: "720px", marginBottom: "64px" }}>
-            <p style={{ fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 600, color: "#1f261d", lineHeight: 1.55, fontFamily: "'Chillax', 'Nunito', sans-serif" }}>
-              En un entorno en el que la industria del empaque toma fuerza,
-              y más que ser un insumo, se convierte en una{" "}
-              <span style={{ color: "#628141" }}>decisión estratégica</span>{" "}
-              que impacta la operación, la marca y la huella que dejamos.
+          <div style={{ maxWidth: "640px", marginBottom: "64px" }}>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.2, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "16px" }}>
+              Evolucionar sin riesgo no es tan simple.
+            </h2>
+            <p style={{ fontSize: "18px", color: "#40513b", lineHeight: 1.7 }}>
+              Entre tantas opciones, materiales y promesas, es difícil elegir.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
