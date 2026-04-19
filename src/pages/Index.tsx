@@ -126,7 +126,7 @@ const Index = () => {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section style={{ background: "#1f261d", minHeight: "88vh", display: "flex", alignItems: "center", padding: "80px 0 64px" }}>
         <div className="container">
-          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "64px", alignItems: "center" }}>
+          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "64px", alignItems: "center", overflow: "visible" }}>
             <div>
               <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
                 Renovapack · Empaque B2B · HORECA · México
@@ -171,12 +171,12 @@ const Index = () => {
               </div>
             </div>
             {/* Hero image composition */}
-            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: "680px" }}>
+            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: "680px", overflow: "visible" }}>
               <div style={{ position: "absolute", top: "55%", left: "10%", right: "0%", bottom: "0%", background: "#2e3a2b", borderRadius: "24px 0 0 24px" }} aria-hidden="true" />
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "relative", width: "380%", maxWidth: "none", objectFit: "contain", marginLeft: "5%", verticalAlign: "bottom" }}
+                style={{ position: "absolute", bottom: "0", left: "-40%", width: "180%", objectFit: "contain" }}
               />
               <div style={{ position: "absolute", bottom: "24px", right: "0px", background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
