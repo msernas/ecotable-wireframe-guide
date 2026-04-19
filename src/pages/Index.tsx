@@ -173,19 +173,8 @@ const Index = () => {
             {/* Hero image with logo arrows composition */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
 
-              {/* Logo recycling arrows BEHIND model (zIndex 0) */}
-              <svg viewBox="0 0 340 260" style={{ position: "absolute", inset: 0, width: "90%", height: "90%", margin: "auto", zIndex: 0 }} aria-hidden="true">
-                {/* Top arrow pointing LEFT - behind model */}
-                <g opacity="0.3">
-                  <rect x="60" y="52" width="160" height="32" rx="6" fill="#628141"/>
-                  <polygon points="60,44 20,68 60,92" fill="#628141"/>
-                  <rect x="248" y="40" width="32" height="56" rx="6" fill="#628141"/>
-                </g>
-                {/* Left curved connector - behind model */}
-                <path d="M 60 68 Q 10 68 10 130 Q 10 192 60 192" stroke="#628141" strokeWidth="28" fill="none" strokeLinecap="round" opacity="0.3"/>
-                {/* Right curved connector - behind model */}
-                <path d="M 280 68 Q 330 68 330 130 Q 330 192 280 192" stroke="#628141" strokeWidth="28" fill="none" strokeLinecap="round" opacity="0.3"/>
-              </svg>
+              {/* Simple green rectangle BEHIND model */}
+              <div style={{ position: "absolute", inset: "10%", zIndex: 0, background: "#2e3a2b", borderRadius: "24px", opacity: 0.85 }} aria-hidden="true" />
 
               {/* Person photo — middle layer (zIndex 1) */}
               <img
@@ -194,14 +183,7 @@ const Index = () => {
                 style={{ position: "relative", zIndex: 1, width: "160%", maxWidth: "864px", objectFit: "contain" }}
               />
 
-              {/* Bottom arrow pointing RIGHT - IN FRONT of model (zIndex 2) */}
-              <svg viewBox="0 0 340 260" style={{ position: "absolute", inset: 0, width: "90%", height: "90%", margin: "auto", zIndex: 2, pointerEvents: "none" }} aria-hidden="true">
-                <g opacity="0.65">
-                  <rect x="120" y="176" width="160" height="32" rx="6" fill="#628141"/>
-                  <polygon points="280,168 320,192 280,216" fill="#628141"/>
-                  <rect x="60" y="164" width="32" height="56" rx="6" fill="#628141"/>
-                </g>
-              </svg>
+
 
               {/* Floating bioeco badge */}
               <div style={{ position: "absolute", bottom: "24px", right: "0px", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
