@@ -173,8 +173,8 @@ const Index = () => {
             {/* Hero image with logo arrows composition */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
 
-              {/* Simple green rectangle BEHIND model */}
-              <div style={{ position: "absolute", inset: "10%", zIndex: 0, background: "#2e3a2b", borderRadius: "24px", opacity: 0.85 }} aria-hidden="true" />
+              {/* Green rectangle strictly behind model */}
+              <div style={{ position: "absolute", top: "8%", left: "5%", right: "5%", bottom: "5%", zIndex: 0, background: "#2e3a2b", borderRadius: "24px" }} aria-hidden="true" />
 
               {/* Person photo — middle layer (zIndex 1) */}
               <img
