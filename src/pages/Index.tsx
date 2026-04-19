@@ -176,11 +176,11 @@ const Index = () => {
               {/* Layer 1 — green rectangle (first in DOM = bottom of stack) */}
               <div style={{ position: "absolute", top: "8%", left: "5%", right: "5%", bottom: "5%", background: "#2e3a2b", borderRadius: "24px" }} aria-hidden="true" />
 
-              {/* Layer 2 — person photo (second in DOM = above rectangle) */}
+              {/* Layer 2 — person photo with screen blend to remove black bg */}
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "relative", width: "160%", maxWidth: "864px", objectFit: "contain" }}
+                style={{ position: "relative", width: "160%", maxWidth: "864px", objectFit: "contain", mixBlendMode: "screen" }}
               />
 
               {/* Layer 3 — badge (last in DOM = top of stack) */}
