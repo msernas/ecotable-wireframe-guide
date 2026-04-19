@@ -214,25 +214,25 @@ const Index = () => {
       </section>
 
       {/* ── SECTORES ─────────────────────────────────────────── */}
-      <section style={{ background: "#EAF3DE", padding: "96px 0" }}>
+      <section style={{ background: "#628141", padding: "96px 0" }}>
         <div className="container">
           {/* Header */}
           <div style={{ marginBottom: "56px" }}>
-            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "12px" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#e5d9b6", marginBottom: "12px" }}>
               Sectores
             </div>
             <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
               <div>
-                <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "8px" }}>
+                <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#fffbf8", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "8px" }}>
                   Especialistas en HORECA y B2B industrial
                 </h2>
-                <p style={{ fontSize: "15px", color: "#40513b", lineHeight: 1.5 }}>
+                <p style={{ fontSize: "15px", color: "#e5d9b6", lineHeight: 1.5 }}>
                   Desechables biodegradables para todo tipo de negocios
                 </p>
               </div>
               <Link
                 to="/sectores"
-                style={{ display: "inline-flex", alignItems: "center", height: "44px", border: "1px solid #40513b", color: "#40513b", padding: "0 20px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}
+                style={{ display: "inline-flex", alignItems: "center", height: "44px", border: "1px solid #e5d9b6", color: "#e5d9b6", padding: "0 20px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}
               >
                 Ver todos los sectores →
               </Link>
@@ -288,7 +288,7 @@ const Index = () => {
               <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "16px" }}>
                 Catálogo
               </div>
-              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif" }}>
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#fffbf8", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif" }}>
                 90+ soluciones de empaque
               </h2>
             </div>
@@ -316,7 +316,7 @@ const Index = () => {
           {/* bioeco highlight */}
           <div style={{ background: "#1f261d", borderRadius: "16px", padding: "48px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
             <div>
-              <div style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "12px" }}>Sub-marca</div>
+              <div style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#e5d9b6", marginBottom: "12px" }}>Sub-marca</div>
               <div style={{ fontSize: "42px", fontWeight: 800, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1, marginBottom: "16px" }}>bioeco</div>
               <p style={{ fontSize: "15px", color: "#8aab7a", lineHeight: 1.7, marginBottom: "28px" }}>
                 Línea de desechables 100% compostables certificados. Bagazo de trigo, PLA, fécula de maíz y papel + PLA. Para operaciones que exigen lo mejor.
