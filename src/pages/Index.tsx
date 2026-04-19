@@ -171,51 +171,32 @@ const Index = () => {
               </div>
             </div>
             {/* Hero image with logo arrows composition */}
-            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "480px" }}>
-              {/* Large background arrows — Renovapack logo mark */}
-              <svg
-                viewBox="0 0 400 320"
-                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.22 }}
-                fill="none"
-                aria-hidden="true"
-              >
-                {/* Top arrow — pointing left */}
-                <path
-                  d="M280 80 L120 80 L120 60 L60 100 L120 140 L120 120 L260 120 Q290 120 310 100 L370 100 L340 80 Z"
-                  fill="#628141"
-                />
-                {/* Bottom arrow — pointing right */}
-                <path
-                  d="M120 200 L280 200 L280 180 L340 220 L280 260 L280 240 L140 240 Q110 240 90 220 L30 220 L60 200 Z"
-                  fill="#628141"
-                />
-                {/* Left arc connecting arrows */}
-                <path
-                  d="M90 100 Q40 100 40 160 Q40 220 90 220"
-                  stroke="#628141"
-                  strokeWidth="40"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                {/* Right arc connecting arrows */}
-                <path
-                  d="M310 100 Q360 100 360 160 Q360 220 310 220"
-                  stroke="#628141"
-                  strokeWidth="40"
-                  strokeLinecap="round"
-                  fill="none"
-                />
+            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
+
+              {/* Top arrow — BEHIND the model (zIndex 0) */}
+              <svg viewBox="0 0 320 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.28, zIndex: 0 }} fill="none" aria-hidden="true">
+                {/* Left arc */}
+                <path d="M72 80 Q22 80 22 130 Q22 180 72 180" stroke="#628141" strokeWidth="32" strokeLinecap="round" fill="none"/>
+                {/* Right arc */}
+                <path d="M248 80 Q298 80 298 130 Q298 180 248 180" stroke="#628141" strokeWidth="32" strokeLinecap="round" fill="none"/>
+                {/* Top arrow only — behind model */}
+                <path d="M224 64 L96 64 L96 46 L42 80 L96 114 L96 96 L208 96 Q234 96 248 80 L290 80 L268 64 Z" fill="#628141"/>
               </svg>
 
-              {/* Person photo on top */}
+              {/* Person photo — middle layer (zIndex 1) */}
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "460px", objectFit: "contain" }}
+                style={{ position: "relative", zIndex: 1, width: "115%", maxWidth: "530px", objectFit: "contain" }}
               />
 
+              {/* Bottom arrow — IN FRONT of model (zIndex 2) */}
+              <svg viewBox="0 0 320 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.55, zIndex: 2, pointerEvents: "none" }} fill="none" aria-hidden="true">
+                <path d="M96 164 L224 164 L224 146 L278 180 L224 214 L224 196 L112 196 Q86 196 72 180 L30 180 L52 164 Z" fill="#628141"/>
+              </svg>
+
               {/* Floating bioeco badge */}
-              <div style={{ position: "absolute", bottom: "24px", right: "0px", zIndex: 2, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
+              <div style={{ position: "absolute", bottom: "24px", right: "0px", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>línea</div>
                 <div style={{ fontSize: "22px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1 }}>bioeco</div>
                 <div style={{ fontSize: "11px", color: "#628141", marginTop: "2px" }}>100% compostable</div>
