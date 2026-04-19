@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 const stats = [
   { value: 2500000, display: "2.5M+", label: "Productos entregados al año" },
-  { value: 85, display: "18", label: "años en el mercado" },
+  { value: 85, display: "18+", label: "años en el mercado" },
   { value: 200, display: "600+", label: "Clientes B2B activos" },
   { value: 100, display: "+250", label: "Soluciones para tu negocio" },
 ];
