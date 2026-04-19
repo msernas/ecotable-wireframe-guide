@@ -170,17 +170,17 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            {/* Hero image with logo arrows composition */}
-            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
+            {/* Hero image composition */}
+            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px", isolation: "isolate" }}>
 
               {/* Green rectangle strictly behind model */}
-              <div style={{ position: "absolute", top: "8%", left: "5%", right: "5%", bottom: "5%", zIndex: 0, background: "#2e3a2b", borderRadius: "24px" }} aria-hidden="true" />
+              <div style={{ position: "absolute", top: "8%", left: "5%", right: "5%", bottom: "5%", zIndex: 0, background: "#2e3a2b", borderRadius: "24px", pointerEvents: "none" }} aria-hidden="true" />
 
               {/* Person photo — middle layer (zIndex 1) */}
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "relative", zIndex: 1, width: "160%", maxWidth: "864px", objectFit: "contain" }}
+                style={{ position: "relative", zIndex: 2, width: "160%", maxWidth: "864px", objectFit: "contain" }}
               />
 
 
