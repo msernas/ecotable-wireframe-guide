@@ -196,15 +196,12 @@ const Index = () => {
       {/* ── POR QUÉ RENOVAPACK ───────────────────────────────── */}
       <section style={{ background: "#fffbf8", padding: "96px 0" }}>
         <div className="container">
-          <div style={{ maxWidth: "600px", marginBottom: "64px" }}>
-            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "16px" }}>
-              Por qué Renovapack
-            </div>
-            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif" }}>
-              Lo que solo Renovapack hace por ti
-            </h2>
-            <p style={{ fontSize: "17px", color: "#40513b", lineHeight: 1.7, marginTop: "16px" }}>
-              Somos el aliado que traduce normativas, materiales y logística en decisiones claras para tu operación.
+          <div style={{ maxWidth: "720px", marginBottom: "64px" }}>
+            <p style={{ fontSize: "clamp(22px, 3vw, 36px)", fontWeight: 600, color: "#1f261d", lineHeight: 1.55, fontFamily: "'Chillax', 'Nunito', sans-serif" }}>
+              En un entorno en el que la industria del empaque toma fuerza,
+              y más que ser un insumo, se convierte en una{" "}
+              <span style={{ color: "#628141" }}>decisión estratégica</span>{" "}
+              que impacta la operación, la marca y la huella que dejamos.
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
