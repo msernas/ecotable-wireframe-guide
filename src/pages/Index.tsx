@@ -175,7 +175,7 @@ const Index = () => {
               <img
                 src="/hero.jpg"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ width: "100%", maxWidth: "460px", objectFit: "contain", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.35))" }}
+                style={{ width: "100%", maxWidth: "460px", objectFit: "contain", mixBlendMode: "multiply", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.3))" }}
               />
               {/* Floating bioeco badge */}
               <div style={{ position: "absolute", bottom: "24px", right: "0px", background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
