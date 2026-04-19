@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Renovapack · Empaque biodegradable B2B HORECA México</title>
-    <meta name="description" content="El futuro se empaca diferente. Renovapack: pioneros en empaque desechable y biodegradable para hoteles, restaurantes, cafeterías y empresas. Cotización B2B nacional." />
+    <meta name="description" content="El futuro se empaca distinto. Renovapack: pioneros en empaque desechable y biodegradable para hoteles, restaurantes, cafeterías y empresas. Cotización B2B nacional." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -23,6 +23,18 @@
       }
       @media (max-width: 768px) {
         .container { padding-left: 20px !important; padding-right: 20px !important; }
+      }
+      .hero-grid {
+        grid-template-columns: 1.1fr 1fr !important;
+      }
+      @media (max-width: 768px) {
+        .hero-grid {
+          grid-template-columns: 1fr !important;
+          gap: 32px !important;
+        }
+        .hero-grid > div:last-child {
+          min-height: 320px !important;
+        }
       }
     </style>
   </head>

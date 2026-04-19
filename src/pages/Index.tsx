@@ -126,7 +126,7 @@ const Index = () => {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section style={{ background: "#1f261d", minHeight: "88vh", display: "flex", alignItems: "center", padding: "80px 0 64px" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "64px", alignItems: "center" }}>
+          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "64px", alignItems: "center" }}>
             <div>
               <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
                 Renovapack · Empaque B2B · HORECA · México
@@ -170,15 +170,52 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            {/* Hero image — transparent bg floats on dark section */}
-            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end" }}>
+            {/* Hero image with logo arrows composition */}
+            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "480px" }}>
+              {/* Large background arrows — Renovapack logo mark */}
+              <svg
+                viewBox="0 0 400 320"
+                style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.22 }}
+                fill="none"
+                aria-hidden="true"
+              >
+                {/* Top arrow — pointing left */}
+                <path
+                  d="M280 80 L120 80 L120 60 L60 100 L120 140 L120 120 L260 120 Q290 120 310 100 L370 100 L340 80 Z"
+                  fill="#628141"
+                />
+                {/* Bottom arrow — pointing right */}
+                <path
+                  d="M120 200 L280 200 L280 180 L340 220 L280 260 L280 240 L140 240 Q110 240 90 220 L30 220 L60 200 Z"
+                  fill="#628141"
+                />
+                {/* Left arc connecting arrows */}
+                <path
+                  d="M90 100 Q40 100 40 160 Q40 220 90 220"
+                  stroke="#628141"
+                  strokeWidth="40"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+                {/* Right arc connecting arrows */}
+                <path
+                  d="M310 100 Q360 100 360 160 Q360 220 310 220"
+                  stroke="#628141"
+                  strokeWidth="40"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </svg>
+
+              {/* Person photo on top */}
               <img
-                src="/hero.jpg"
+                src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ width: "100%", maxWidth: "460px", objectFit: "contain", mixBlendMode: "multiply", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.3))" }}
+                style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "460px", objectFit: "contain" }}
               />
+
               {/* Floating bioeco badge */}
-              <div style={{ position: "absolute", bottom: "24px", right: "0px", background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
+              <div style={{ position: "absolute", bottom: "24px", right: "0px", zIndex: 2, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>línea</div>
                 <div style={{ fontSize: "22px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1 }}>bioeco</div>
                 <div style={{ fontSize: "11px", color: "#628141", marginTop: "2px" }}>100% compostable</div>
