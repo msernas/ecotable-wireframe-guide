@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 
 const stats = [
   { value: 2500000, display: "2.5M+", label: "Productos entregados al año" },
-  { value: 85, display: "−85t", label: "CO₂ evitado vs plástico tradicional" },
-  { value: 200, display: "200+", label: "Clientes B2B activos" },
-  { value: 100, display: "100%", label: "Materiales bioeco certificados" },
+  { value: 85, display: "18", label: "años en el mercado" },
+  { value: 200, display: "600+", label: "Clientes B2B activos" },
+  { value: 100, display: "+250", label: "Soluciones para tu negocio" },
 ];
 
 const sectores = [
@@ -62,7 +62,7 @@ const useCountUp = (target: number, duration = 2000, start = false) => {
 };
 
 const AnimatedWord = () => {
-  const words = ["distinto.", "sustentable.", "juntos."];
+  const words = ["Cumpliendo.", "Profesionalmente.", "Juntos."];
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
   useEffect(() => {
@@ -133,7 +133,7 @@ const Index = () => {
               </div>
               {/* Hidden H1 for SEO — Google indexes this, humans see the animated version */}
               <span className="sr-only" aria-hidden="false" role="heading" aria-level={1}>
-                El futuro se empaca distinto. Renovapack — desechables biodegradables.
+                El Futuro se Empaca Distinto. Renovapack — desechables biodegradables.
               </span>
               <p aria-hidden="true" style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.45, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "28px" }}>
                 El futuro<br />
