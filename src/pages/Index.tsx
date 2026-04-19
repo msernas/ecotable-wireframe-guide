@@ -172,18 +172,12 @@ const Index = () => {
             </div>
             {/* Hero image composition */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
-
-              {/* Layer 1 — green rectangle (first in DOM = bottom of stack) */}
               <div style={{ position: "absolute", top: "8%", left: "5%", right: "5%", bottom: "5%", background: "#2e3a2b", borderRadius: "24px" }} aria-hidden="true" />
-
-              {/* Layer 2 — person photo with screen blend to remove black bg */}
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
                 style={{ position: "relative", width: "160%", maxWidth: "864px", objectFit: "contain", mixBlendMode: "screen" }}
               />
-
-              {/* Layer 3 — badge (last in DOM = top of stack) */}
               <div style={{ position: "absolute", bottom: "24px", right: "0px", background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
                 <div style={{ fontSize: "20px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1.1 }}>Todo México</div>
