@@ -172,11 +172,11 @@ const Index = () => {
             </div>
             {/* Hero image composition */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end", minHeight: "680px" }}>
-              <div style={{ position: "absolute", top: "55%", left: "-10%", right: "0%", bottom: "0%", background: "#2e3a2b", borderRadius: "24px 0 0 24px" }} aria-hidden="true" />
+              <div style={{ position: "absolute", top: "55%", left: "10%", right: "0%", bottom: "0%", background: "#2e3a2b", borderRadius: "24px 0 0 24px" }} aria-hidden="true" />
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "relative", width: "160%", maxWidth: "none", objectFit: "contain", marginLeft: "5%", verticalAlign: "bottom" }}
+                style={{ position: "relative", width: "240%", maxWidth: "none", objectFit: "contain", marginLeft: "5%", verticalAlign: "bottom" }}
               />
               <div style={{ position: "absolute", bottom: "24px", right: "0px", background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
