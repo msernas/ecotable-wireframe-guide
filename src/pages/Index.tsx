@@ -165,7 +165,7 @@ const Index = () => {
         </div>
 
         {/* Green rectangle - absolute positioned in section */}
-        <div style={{ position: "absolute", bottom: 0, right: "5%", width: "35%", height: "23%", background: "#2e3a2b", borderRadius: "24px 24px 0 0", zIndex: 1 }} aria-hidden="true" />
+        <div style={{ position: "absolute", bottom: "5%", right: "5%", width: "35%", height: "23%", background: "#2e3a2b", borderRadius: "24px", zIndex: 1 }} aria-hidden="true" />
 
         {/* Model image - absolute positioned, fills right side */}
         <img
