@@ -214,41 +214,65 @@ const Index = () => {
       </section>
 
       {/* ── SECTORES ─────────────────────────────────────────── */}
-      <section style={{ background: "#e5d9b6", padding: "96px 0" }}>
+      <section style={{ background: "#1f261d", padding: "96px 0" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "64px", alignItems: "start" }}>
-            <div>
-              <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "16px" }}>
-                Sectores
+          {/* Header */}
+          <div style={{ marginBottom: "56px" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "12px" }}>
+              Sectores
+            </div>
+            <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
+              <div>
+                <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#fffbf8", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "8px" }}>
+                  Especialistas en HORECA y B2B industrial
+                </h2>
+                <p style={{ fontSize: "15px", color: "#8aab7a", lineHeight: 1.5 }}>
+                  Desechables biodegradables para todo tipo de negocios
+                </p>
               </div>
-              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "20px" }}>
-                Especialistas en HORECA y B2B industrial
-              </h2>
-              <p style={{ fontSize: "15px", color: "#40513b", lineHeight: 1.7, marginBottom: "32px" }}>
-                Conocemos las necesidades operativas de cada sector. No vendemos cajas — diseñamos soluciones.
-              </p>
               <Link
                 to="/sectores"
-                style={{ display: "inline-flex", alignItems: "center", height: "48px", background: "#1f261d", color: "#fffbf8", padding: "0 24px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                style={{ display: "inline-flex", alignItems: "center", height: "44px", border: "1px solid #3d4e3a", color: "#8aab7a", padding: "0 20px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}
               >
                 Ver todos los sectores →
               </Link>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-              {sectores.map((s) => (
-                <Link
-                  key={s.name}
-                  to="/sectores"
-                  style={{ display: "block", padding: "24px", background: "#fffbf8", borderRadius: "12px", border: "0.5px solid #d0c8a8", textDecoration: "none", transition: "border-color 0.15s" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#628141")}
-                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#d0c8a8")}
-                >
-                  <div style={{ fontSize: "24px", marginBottom: "8px" }}>{s.icon}</div>
-                  <div style={{ fontSize: "15px", fontWeight: 700, color: "#1f261d", marginBottom: "4px", fontFamily: "'Chillax', 'Nunito', sans-serif" }}>{s.name}</div>
-                  <div style={{ fontSize: "12px", color: "#628141", lineHeight: 1.4 }}>{s.desc}</div>
-                </Link>
-              ))}
-            </div>
+          </div>
+
+          {/* Sector cards with photos */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "16px" }}>
+            {[
+              { name: "Hoteles", desc: "Amenities, desayuno y room service", img: "/sector-hoteles.jpg" },
+              { name: "Cafeterías", desc: "Vasos, tapas y cubiertos compostables", img: "/sector-cafeterias.jpg" },
+              { name: "Restaurantes", desc: "Empaque to-go y entrega a domicilio", img: "/sector-restaurantes.jpg" },
+              { name: "Hospitales", desc: "Desechables grado alimenticio institucional", img: "/sector-hospitales.jpg" },
+            ].map((s) => (
+              <Link
+                key={s.name}
+                to="/sectores"
+                style={{ display: "block", borderRadius: "16px", overflow: "hidden", textDecoration: "none", position: "relative", aspectRatio: "3/4" }}
+                onMouseEnter={(e) => { const img = e.currentTarget.querySelector('img') as HTMLImageElement; if(img) img.style.transform = 'scale(1.05)'; }}
+                onMouseLeave={(e) => { const img = e.currentTarget.querySelector('img') as HTMLImageElement; if(img) img.style.transform = 'scale(1)'; }}
+              >
+                {/* Photo */}
+                <img
+                  src={s.img}
+                  alt={s.name}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s ease" }}
+                />
+                {/* Dark overlay */}
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(31,38,29,0.92) 0%, rgba(31,38,29,0.2) 50%, transparent 100%)" }} />
+                {/* Text */}
+                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "24px" }}>
+                  <div style={{ fontSize: "18px", fontWeight: 800, color: "#fffbf8", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "4px" }}>
+                    {s.name}
+                  </div>
+                  <div style={{ fontSize: "12px", color: "#a8c990", lineHeight: 1.4 }}>
+                    {s.desc}
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
