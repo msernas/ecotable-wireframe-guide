@@ -165,17 +165,17 @@ const Index = () => {
         </div>
 
         {/* Green rectangle - absolute positioned in section */}
-        <div style={{ position: "absolute", bottom: 0, right: "5%", width: "32%", height: "18%", background: "#2e3a2b", borderRadius: "24px 24px 0 0", zIndex: 1 }} aria-hidden="true" />
+        <div style={{ position: "absolute", bottom: 0, right: "5%", width: "35%", height: "23%", background: "#2e3a2b", borderRadius: "24px 24px 0 0", zIndex: 1 }} aria-hidden="true" />
 
         {/* Model image - absolute positioned, fills right side */}
         <img
           src="/hero.png"
           alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-          style={{ position: "absolute", bottom: 0, right: "0%", height: "100%", width: "50%", objectFit: "contain", objectPosition: "bottom center", zIndex: 2 }}
+          style={{ position: "absolute", bottom: "5%", right: "0%", height: "100%", width: "50%", objectFit: "contain", objectPosition: "bottom center", zIndex: 2 }}
         />
 
         {/* Badge */}
-        <div style={{ position: "absolute", bottom: "32px", right: "2%", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
+        <div style={{ position: "absolute", bottom: "12%", right: "2%", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
           <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
           <div style={{ fontSize: "20px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1.1 }}>Todo México</div>
         </div>
