@@ -174,7 +174,7 @@ const Index = () => {
             <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
 
               {/* Top arrow — BEHIND the model (zIndex 0) */}
-              <svg viewBox="0 0 320 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.28, zIndex: 0 }} fill="none" aria-hidden="true">
+              <svg viewBox="-40 -30 400 320" style={{ position: "absolute", inset: 0, width: "85%", height: "85%", margin: "auto", opacity: 0.28, zIndex: 0 }} fill="none" aria-hidden="true">
                 {/* Left arc */}
                 <path d="M72 80 Q22 80 22 130 Q22 180 72 180" stroke="#628141" strokeWidth="32" strokeLinecap="round" fill="none"/>
                 {/* Right arc */}
@@ -187,11 +187,11 @@ const Index = () => {
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "relative", zIndex: 1, width: "115%", maxWidth: "530px", objectFit: "contain" }}
+                style={{ position: "relative", zIndex: 1, width: "140%", maxWidth: "720px", objectFit: "contain" }}
               />
 
               {/* Bottom arrow — IN FRONT of model (zIndex 2) */}
-              <svg viewBox="0 0 320 260" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.55, zIndex: 2, pointerEvents: "none" }} fill="none" aria-hidden="true">
+              <svg viewBox="-40 -30 400 320" style={{ position: "absolute", inset: 0, width: "85%", height: "85%", margin: "auto", opacity: 0.65, zIndex: 2, pointerEvents: "none" }} fill="none" aria-hidden="true">
                 <path d="M96 164 L224 164 L224 146 L278 180 L224 214 L224 196 L112 196 Q86 196 72 180 L30 180 L52 164 Z" fill="#628141"/>
               </svg>
 
