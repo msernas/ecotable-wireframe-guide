@@ -267,10 +267,10 @@ const Index = () => {
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(31,38,29,0.92) 0%, rgba(31,38,29,0.2) 50%, transparent 100%)" }} />
                 {/* Text */}
                 <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "24px" }}>
-                  <div style={{ fontSize: "18px", fontWeight: 800, color: "#fffbf8", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "4px" }}>
+                  <div style={{ fontSize: "27px", fontWeight: 800, color: "#fffbf8", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "6px" }}>
                     {s.name}
                   </div>
-                  <div style={{ fontSize: "12px", color: "#a8c990", lineHeight: 1.4 }}>
+                  <div style={{ fontSize: "14px", color: "#a8c990", lineHeight: 1.4 }}>
                     {s.desc}
                   </div>
                 </div>
