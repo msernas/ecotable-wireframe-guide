@@ -214,7 +214,7 @@ const Index = () => {
       </section>
 
       {/* ── SECTORES ─────────────────────────────────────────── */}
-      <section style={{ background: "#e5d9b6", padding: "96px 0" }}>
+      <section style={{ background: "#EAF3DE", padding: "96px 0" }}>
         <div className="container">
           {/* Header */}
           <div style={{ marginBottom: "56px" }}>
