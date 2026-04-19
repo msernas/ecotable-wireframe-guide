@@ -126,7 +126,7 @@ const Index = () => {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <section style={{ background: "#1f261d", minHeight: "88vh", display: "flex", alignItems: "center", padding: "80px 0 64px" }}>
         <div className="container">
-          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "64px", alignItems: "center", overflow: "visible" }}>
+          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "32px", alignItems: "center", overflow: "visible" }}>
             <div>
               <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
                 Renovapack · Empaque B2B · HORECA · México
@@ -176,7 +176,7 @@ const Index = () => {
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "absolute", bottom: "0", left: "-40%", width: "180%", objectFit: "contain" }}
+                style={{ position: "absolute", bottom: "0", left: "-20%", width: "280%", objectFit: "contain" }}
               />
               <div style={{ position: "absolute", bottom: "24px", right: "0px", background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
