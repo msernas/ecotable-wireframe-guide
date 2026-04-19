@@ -80,7 +80,7 @@ const SiteHeader = () => {
 
           {/* Logo */}
           <Link to="/" aria-label="Renovapack inicio" className="flex items-center shrink-0">
-            <img src="/logo-sand.svg" alt="Renovapack" className="h-9 w-auto object-contain" />
+            <img src="/logo-sand.svg" alt="Renovapack" style={{ height: "36px", width: "auto", background: "transparent" }} />
           </Link>
 
           {/* Desktop nav */}

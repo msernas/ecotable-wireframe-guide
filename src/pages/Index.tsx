@@ -173,33 +173,35 @@ const Index = () => {
             {/* Hero image with logo arrows composition */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
 
-              {/* Top arrow — BEHIND the model (zIndex 0) */}
-              <svg viewBox="-40 -30 400 320" style={{ position: "absolute", inset: 0, width: "85%", height: "85%", margin: "auto", opacity: 0.28, zIndex: 0 }} fill="none" aria-hidden="true">
-                {/* Left arc */}
-                <path d="M72 80 Q22 80 22 130 Q22 180 72 180" stroke="#628141" strokeWidth="32" strokeLinecap="round" fill="none"/>
-                {/* Right arc */}
-                <path d="M248 80 Q298 80 298 130 Q298 180 248 180" stroke="#628141" strokeWidth="32" strokeLinecap="round" fill="none"/>
-                {/* Top arrow only — behind model */}
-                <path d="M224 64 L96 64 L96 46 L42 80 L96 114 L96 96 L208 96 Q234 96 248 80 L290 80 L268 64 Z" fill="#628141"/>
+              {/* Recycling symbol BEHIND model (zIndex 0) */}
+              <svg viewBox="0 0 500 420" style={{ position: "absolute", inset: 0, width: "80%", height: "80%", margin: "auto", zIndex: 0 }} fill="none" aria-hidden="true">
+                {/* Outer ring */}
+                <path d="M 250 30 A 190 190 0 1 1 249 30" stroke="#628141" strokeWidth="60" fill="none" strokeOpacity="0.25"/>
+                {/* Top-left arrow head */}
+                <polygon points="90,85 130,55 115,105" fill="#628141" fillOpacity="0.25"/>
+                {/* Bottom-right arrow head */}
+                <polygon points="410,335 370,365 385,315" fill="#628141" fillOpacity="0.25"/>
               </svg>
 
               {/* Person photo — middle layer (zIndex 1) */}
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
-                style={{ position: "relative", zIndex: 1, width: "140%", maxWidth: "720px", objectFit: "contain" }}
+                style={{ position: "relative", zIndex: 1, width: "160%", maxWidth: "864px", objectFit: "contain" }}
               />
 
-              {/* Bottom arrow — IN FRONT of model (zIndex 2) */}
-              <svg viewBox="-40 -30 400 320" style={{ position: "absolute", inset: 0, width: "85%", height: "85%", margin: "auto", opacity: 0.65, zIndex: 2, pointerEvents: "none" }} fill="none" aria-hidden="true">
-                <path d="M96 164 L224 164 L224 146 L278 180 L224 214 L224 196 L112 196 Q86 196 72 180 L30 180 L52 164 Z" fill="#628141"/>
+              {/* Bottom arc segment IN FRONT of model (zIndex 2) */}
+              <svg viewBox="0 0 500 420" style={{ position: "absolute", inset: 0, width: "80%", height: "80%", margin: "auto", zIndex: 2, pointerEvents: "none" }} fill="none" aria-hidden="true">
+                {/* Bottom arc only - appears in front */}
+                <path d="M 100 340 A 190 190 0 0 0 400 340" stroke="#628141" strokeWidth="60" fill="none" strokeOpacity="0.55"/>
+                {/* Bottom-right arrowhead in front */}
+                <polygon points="415,320 370,365 390,310" fill="#628141" fillOpacity="0.7"/>
               </svg>
 
               {/* Floating bioeco badge */}
               <div style={{ position: "absolute", bottom: "24px", right: "0px", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
-                <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>línea</div>
-                <div style={{ fontSize: "22px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1 }}>bioeco</div>
-                <div style={{ fontSize: "11px", color: "#628141", marginTop: "2px" }}>100% compostable</div>
+                <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
+                <div style={{ fontSize: "18px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1.2 }}>Llegamos a<br/>todo México</div>
               </div>
             </div>
           </div>
