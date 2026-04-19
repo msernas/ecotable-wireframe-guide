@@ -62,7 +62,7 @@ const useCountUp = (target: number, duration = 2000, start = false) => {
 };
 
 const AnimatedWord = () => {
-  const words = ["Cumpliendo.", "Profesionalmente.", "Juntos."];
+  const words = ["Distinto.", "Con Calidad.", "Juntos."];
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
   useEffect(() => {
@@ -136,9 +136,9 @@ const Index = () => {
                 El Futuro se Empaca Distinto. Renovapack — desechables biodegradables.
               </span>
               <p aria-hidden="true" style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.45, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "28px" }}>
-                El futuro<br />
+                El Futuro<br />
                 <span style={{ background: "#2e3a2b", color: "#e5d9b6", padding: "2px 16px 6px", borderRadius: "10px", display: "inline" }}>
-                  se empaca
+                  se Empaca
                 </span>
                 <br />
                 <AnimatedWord />
