@@ -214,7 +214,7 @@ const Index = () => {
       </section>
 
       {/* ── SECTORES ─────────────────────────────────────────── */}
-      <section style={{ background: "#1f261d", padding: "96px 0" }}>
+      <section style={{ background: "#e5d9b6", padding: "96px 0" }}>
         <div className="container">
           {/* Header */}
           <div style={{ marginBottom: "56px" }}>
@@ -223,16 +223,16 @@ const Index = () => {
             </div>
             <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
               <div>
-                <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#fffbf8", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "8px" }}>
+                <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "8px" }}>
                   Especialistas en HORECA y B2B industrial
                 </h2>
-                <p style={{ fontSize: "15px", color: "#8aab7a", lineHeight: 1.5 }}>
+                <p style={{ fontSize: "15px", color: "#40513b", lineHeight: 1.5 }}>
                   Desechables biodegradables para todo tipo de negocios
                 </p>
               </div>
               <Link
                 to="/sectores"
-                style={{ display: "inline-flex", alignItems: "center", height: "44px", border: "1px solid #3d4e3a", color: "#8aab7a", padding: "0 20px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}
+                style={{ display: "inline-flex", alignItems: "center", height: "44px", border: "1px solid #40513b", color: "#40513b", padding: "0 20px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap" }}
               >
                 Ver todos los sectores →
               </Link>
@@ -246,6 +246,9 @@ const Index = () => {
               { name: "Cafeterías", desc: "Vasos, tapas y cubiertos compostables", img: "/sector-cafeterias.jpg" },
               { name: "Restaurantes", desc: "Empaque to-go y entrega a domicilio", img: "/sector-restaurantes.jpg" },
               { name: "Hospitales", desc: "Desechables grado alimenticio institucional", img: "/sector-hospitales.jpg" },
+              { name: "Comedores industriales", desc: "Soluciones de alto volumen para empresas", img: "/sector-comedores.jpg" },
+              { name: "Empaques industriales", desc: "Empaques especializados para manufactura", img: "/sector-industrial.jpg" },
+              { name: "Distribuidores", desc: "Alianzas estratégicas mayoreo nacional", img: "/sector-distribuidores.jpg" },
             ].map((s) => (
               <Link
                 key={s.name}
