@@ -173,14 +173,18 @@ const Index = () => {
             {/* Hero image with logo arrows composition */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
 
-              {/* Recycling symbol BEHIND model (zIndex 0) */}
-              <svg viewBox="0 0 500 420" style={{ position: "absolute", inset: 0, width: "80%", height: "80%", margin: "auto", zIndex: 0 }} fill="none" aria-hidden="true">
-                {/* Outer ring */}
-                <path d="M 250 30 A 190 190 0 1 1 249 30" stroke="#628141" strokeWidth="60" fill="none" strokeOpacity="0.25"/>
-                {/* Top-left arrow head */}
-                <polygon points="90,85 130,55 115,105" fill="#628141" fillOpacity="0.25"/>
-                {/* Bottom-right arrow head */}
-                <polygon points="410,335 370,365 385,315" fill="#628141" fillOpacity="0.25"/>
+              {/* Logo recycling arrows BEHIND model (zIndex 0) */}
+              <svg viewBox="0 0 340 260" style={{ position: "absolute", inset: 0, width: "90%", height: "90%", margin: "auto", zIndex: 0 }} aria-hidden="true">
+                {/* Top arrow pointing LEFT - behind model */}
+                <g opacity="0.3">
+                  <rect x="60" y="52" width="160" height="32" rx="6" fill="#628141"/>
+                  <polygon points="60,44 20,68 60,92" fill="#628141"/>
+                  <rect x="248" y="40" width="32" height="56" rx="6" fill="#628141"/>
+                </g>
+                {/* Left curved connector - behind model */}
+                <path d="M 60 68 Q 10 68 10 130 Q 10 192 60 192" stroke="#628141" strokeWidth="28" fill="none" strokeLinecap="round" opacity="0.3"/>
+                {/* Right curved connector - behind model */}
+                <path d="M 280 68 Q 330 68 330 130 Q 330 192 280 192" stroke="#628141" strokeWidth="28" fill="none" strokeLinecap="round" opacity="0.3"/>
               </svg>
 
               {/* Person photo — middle layer (zIndex 1) */}
@@ -190,18 +194,19 @@ const Index = () => {
                 style={{ position: "relative", zIndex: 1, width: "160%", maxWidth: "864px", objectFit: "contain" }}
               />
 
-              {/* Bottom arc segment IN FRONT of model (zIndex 2) */}
-              <svg viewBox="0 0 500 420" style={{ position: "absolute", inset: 0, width: "80%", height: "80%", margin: "auto", zIndex: 2, pointerEvents: "none" }} fill="none" aria-hidden="true">
-                {/* Bottom arc only - appears in front */}
-                <path d="M 100 340 A 190 190 0 0 0 400 340" stroke="#628141" strokeWidth="60" fill="none" strokeOpacity="0.55"/>
-                {/* Bottom-right arrowhead in front */}
-                <polygon points="415,320 370,365 390,310" fill="#628141" fillOpacity="0.7"/>
+              {/* Bottom arrow pointing RIGHT - IN FRONT of model (zIndex 2) */}
+              <svg viewBox="0 0 340 260" style={{ position: "absolute", inset: 0, width: "90%", height: "90%", margin: "auto", zIndex: 2, pointerEvents: "none" }} aria-hidden="true">
+                <g opacity="0.65">
+                  <rect x="120" y="176" width="160" height="32" rx="6" fill="#628141"/>
+                  <polygon points="280,168 320,192 280,216" fill="#628141"/>
+                  <rect x="60" y="164" width="32" height="56" rx="6" fill="#628141"/>
+                </g>
               </svg>
 
               {/* Floating bioeco badge */}
               <div style={{ position: "absolute", bottom: "24px", right: "0px", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
-                <div style={{ fontSize: "18px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1.2 }}>Llegamos a<br/>todo México</div>
+                <div style={{ fontSize: "20px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1.1 }}>Todo México</div>
               </div>
             </div>
           </div>
