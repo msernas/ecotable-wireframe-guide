@@ -1,0 +1,373 @@
+import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+
+const stats = [
+  { value: 2500000, display: "12.5M+", label: "Productos entregados al año" },
+  { value: 85, display: "18+", label: "años en el mercado" },
+  { value: 200, display: "600+", label: "Clientes B2B activos" },
+  { value: 100, display: "+250", label: "Soluciones para tu negocio" },
+];
+
+const sectores = [
+  { name: "Hoteles", desc: "Amenities, desayuno, room service", icon: "🏨" },
+  { name: "Cafeterías", desc: "Vasos, tapas, cubiertos compostables", icon: "☕" },
+  { name: "Restaurantes", desc: "Empaque to-go y entrega a domicilio", icon: "🍽" },
+  { name: "Hospitales", desc: "Desechables grado alimenticio institucional", icon: "🏥" },
+  { name: "Comedores", desc: "Soluciones de alto volumen para empresas", icon: "🏢" },
+];
+
+const diferenciadores = [
+  {
+    n: "01",
+    t: "Solución integral",
+    d: "Materiales, operación y logística en una sola conversación. No coordinas 5 proveedores — coordinas a Renovapack.",
+  },
+  {
+    n: "02",
+    t: "Expertise de industria",
+    d: "Más de una década traduciendo normativas y certificaciones en decisiones operables para tu negocio HORECA.",
+  },
+  {
+    n: "03",
+    t: "Llegamos lejos, rápido",
+    d: "Cobertura nacional con tiempos confiables. Tu operación no se detiene esperando empaque.",
+  },
+];
+
+const categorias = [
+  { name: "Contenedores", count: 24 },
+  { name: "Vasos", count: 18 },
+  { name: "Cubiertos", count: 12 },
+  { name: "Platos", count: 16 },
+  { name: "Bolsas", count: 9 },
+  { name: "Complementarios", count: 14 },
+];
+
+const certs = ["TÜV OK Compost", "BPI", "FSC", "FDA"];
+
+const useCountUp = (target: number, duration = 2000, start = false) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startTime: number;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setCount(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [start, target, duration]);
+  return count;
+};
+
+const AnimatedWord = () => {
+  const words = ["distinto.", "con calidad.", "juntos."];
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % words.length);
+        setVisible(true);
+      }, 400);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <span
+      style={{
+        color: "#e5d9b6",
+        display: "inline-block",
+        transition: "opacity 0.4s ease",
+        opacity: visible ? 1 : 0,
+      }}
+    >
+      {words[idx]}
+    </span>
+  );
+};
+
+const StatsSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [started, setStarted] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  return (
+    <section ref={ref} style={{ background: "#1f261d", padding: "72px 0" }}>
+      <div className="container">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "32px" }}>
+          {stats.map((s) => (
+            <div key={s.label} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "42px", fontWeight: 700, color: "#e67e22", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1 }}>
+                {s.display}
+              </div>
+              <div style={{ fontSize: "13px", color: "#8aab7a", marginTop: "8px", lineHeight: 1.4, textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Index = () => {
+  return (
+    <>
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section style={{ background: "#1f261d", minHeight: "88vh", display: "flex", alignItems: "center", padding: "80px 0 64px" }}>
+        <div className="container">
+          <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "64px", alignItems: "center" }}>
+            <div>
+              <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
+                Renovapack · Empaque B2B · HORECA · México
+              </div>
+              {/* Hidden H1 for SEO — Google indexes this, humans see the animated version */}
+              <span className="sr-only" aria-hidden="false" role="heading" aria-level={1}>
+                El Futuro se Empaca Distinto. Renovapack — desechables biodegradables.
+              </span>
+              <p aria-hidden="true" style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.45, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "28px" }}>
+                El futuro<br />
+                <span style={{ background: "#2e3a2b", color: "#e5d9b6", padding: "2px 16px 6px", borderRadius: "10px", display: "inline" }}>
+                  se empaca
+                </span>
+                <br />
+                <AnimatedWord />
+              </p>
+              <p style={{ fontSize: "18px", color: "#8aab7a", lineHeight: 1.7, maxWidth: "480px", marginBottom: "40px" }}>
+                Pioneros en empaque desechable y biodegradable. Más que un proveedor: un aliado que guía tus decisiones con expertise, sustentabilidad real y logística para cualquier escala.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <Link
+                  to="/catalogo"
+                  style={{ display: "inline-flex", alignItems: "center", height: "52px", background: "#e67e22", color: "#1f261d", padding: "0 28px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                >
+                  Explorar catálogo →
+                </Link>
+                <Link
+                  to="/contacto"
+                  style={{ display: "inline-flex", alignItems: "center", height: "52px", border: "1.5px solid rgba(255,255,255,0.25)", color: "#fffbf8", padding: "0 28px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                >
+                  Solicitar cotización
+                </Link>
+              </div>
+              {/* Cert strip */}
+              <div style={{ display: "flex", alignItems: "center", gap: "16px", marginTop: "48px", flexWrap: "wrap" }}>
+                <span style={{ fontSize: "10px", color: "#4a6045", textTransform: "uppercase", letterSpacing: "0.1em" }}>Certificados</span>
+                {certs.map((c) => (
+                  <span key={c} style={{ fontSize: "11px", fontWeight: 600, color: "#8aab7a", padding: "4px 10px", border: "0.5px solid #3d4e3a", borderRadius: "4px" }}>
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </div>
+            {/* Hero image with logo arrows composition */}
+            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
+
+              {/* Logo recycling arrows BEHIND model (zIndex 0) */}
+              <svg viewBox="0 0 340 260" style={{ position: "absolute", inset: 0, width: "90%", height: "90%", margin: "auto", zIndex: 0 }} aria-hidden="true">
+                {/* Top arrow pointing LEFT - behind model */}
+                <g opacity="0.3">
+                  <rect x="60" y="52" width="160" height="32" rx="6" fill="#628141"/>
+                  <polygon points="60,44 20,68 60,92" fill="#628141"/>
+                  <rect x="248" y="40" width="32" height="56" rx="6" fill="#628141"/>
+                </g>
+                {/* Left curved connector - behind model */}
+                <path d="M 60 68 Q 10 68 10 130 Q 10 192 60 192" stroke="#628141" strokeWidth="28" fill="none" strokeLinecap="round" opacity="0.3"/>
+                {/* Right curved connector - behind model */}
+                <path d="M 280 68 Q 330 68 330 130 Q 330 192 280 192" stroke="#628141" strokeWidth="28" fill="none" strokeLinecap="round" opacity="0.3"/>
+              </svg>
+
+              {/* Person photo — middle layer (zIndex 1) */}
+              <img
+                src="/hero.png"
+                alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
+                style={{ position: "relative", zIndex: 1, width: "160%", maxWidth: "864px", objectFit: "contain" }}
+              />
+
+              {/* Bottom arrow pointing RIGHT - IN FRONT of model (zIndex 2) */}
+              <svg viewBox="0 0 340 260" style={{ position: "absolute", inset: 0, width: "90%", height: "90%", margin: "auto", zIndex: 2, pointerEvents: "none" }} aria-hidden="true">
+                <g opacity="0.65">
+                  <rect x="120" y="176" width="160" height="32" rx="6" fill="#628141"/>
+                  <polygon points="280,168 320,192 280,216" fill="#628141"/>
+                  <rect x="60" y="164" width="32" height="56" rx="6" fill="#628141"/>
+                </g>
+              </svg>
+
+              {/* Floating bioeco badge */}
+              <div style={{ position: "absolute", bottom: "24px", right: "0px", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
+                <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>Cobertura</div>
+                <div style={{ fontSize: "20px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1.1 }}>Todo México</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATS ────────────────────────────────────────────── */}
+      <StatsSection />
+
+      {/* ── POR QUÉ RENOVAPACK ───────────────────────────────── */}
+      <section style={{ background: "#fffbf8", padding: "96px 0" }}>
+        <div className="container">
+          <div style={{ maxWidth: "640px", marginBottom: "64px" }}>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 46px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.2, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "16px" }}>
+              Evolucionar sin riesgo no es tan simple.
+            </h2>
+            <p style={{ fontSize: "18px", color: "#40513b", lineHeight: 1.7 }}>
+              Entre tantas opciones, materiales y promesas, es difícil elegir.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
+            {diferenciadores.map((d) => (
+              <div key={d.n} style={{ padding: "36px", background: "#fff", borderRadius: "16px", border: "0.5px solid #e5d9b6" }}>
+                <div style={{ fontSize: "32px", fontWeight: 800, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "16px" }}>{d.n}</div>
+                <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#1f261d", marginBottom: "12px", fontFamily: "'Chillax', 'Nunito', sans-serif" }}>{d.t}</h3>
+                <p style={{ fontSize: "14px", color: "#40513b", lineHeight: 1.7 }}>{d.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTORES ─────────────────────────────────────────── */}
+      <section style={{ background: "#e5d9b6", padding: "96px 0" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "64px", alignItems: "start" }}>
+            <div>
+              <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "16px" }}>
+                Sectores
+              </div>
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "20px" }}>
+                Especialistas en HORECA y B2B industrial
+              </h2>
+              <p style={{ fontSize: "15px", color: "#40513b", lineHeight: 1.7, marginBottom: "32px" }}>
+                Conocemos las necesidades operativas de cada sector. No vendemos cajas — diseñamos soluciones.
+              </p>
+              <Link
+                to="/sectores"
+                style={{ display: "inline-flex", alignItems: "center", height: "48px", background: "#1f261d", color: "#fffbf8", padding: "0 24px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+              >
+                Ver todos los sectores →
+              </Link>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              {sectores.map((s) => (
+                <Link
+                  key={s.name}
+                  to="/sectores"
+                  style={{ display: "block", padding: "24px", background: "#fffbf8", borderRadius: "12px", border: "0.5px solid #d0c8a8", textDecoration: "none", transition: "border-color 0.15s" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#628141")}
+                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#d0c8a8")}
+                >
+                  <div style={{ fontSize: "24px", marginBottom: "8px" }}>{s.icon}</div>
+                  <div style={{ fontSize: "15px", fontWeight: 700, color: "#1f261d", marginBottom: "4px", fontFamily: "'Chillax', 'Nunito', sans-serif" }}>{s.name}</div>
+                  <div style={{ fontSize: "12px", color: "#628141", lineHeight: 1.4 }}>{s.desc}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CATÁLOGO PREVIEW ─────────────────────────────────── */}
+      <section style={{ background: "#fffbf8", padding: "96px 0" }}>
+        <div className="container">
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "48px", flexWrap: "wrap", gap: "16px" }}>
+            <div>
+              <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "16px" }}>
+                Catálogo
+              </div>
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif" }}>
+                90+ soluciones de empaque
+              </h2>
+            </div>
+            <Link to="/catalogo" style={{ fontSize: "14px", fontWeight: 600, color: "#628141", textDecoration: "none" }}>
+              Ver catálogo completo →
+            </Link>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "12px", marginBottom: "48px" }}>
+            {categorias.map((c) => (
+              <Link
+                key={c.name}
+                to="/catalogo"
+                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", padding: "24px 12px", background: "#fff", borderRadius: "12px", border: "0.5px solid #e5d9b6", textDecoration: "none", transition: "all 0.15s" }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#628141"; e.currentTarget.style.background = "#f4f7f4"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e5d9b6"; e.currentTarget.style.background = "#fff"; }}
+              >
+                <div style={{ width: "48px", height: "48px", background: "#e5d9b6", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#40513b" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                </div>
+                <div style={{ fontSize: "12px", fontWeight: 600, color: "#1f261d", textAlign: "center", lineHeight: 1.3 }}>{c.name}</div>
+                <div style={{ fontSize: "11px", color: "#628141" }}>{c.count} productos</div>
+              </Link>
+            ))}
+          </div>
+          {/* bioeco highlight */}
+          <div style={{ background: "#1f261d", borderRadius: "16px", padding: "48px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+            <div>
+              <div style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "12px" }}>Sub-marca</div>
+              <div style={{ fontSize: "42px", fontWeight: 800, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1, marginBottom: "16px" }}>bioeco</div>
+              <p style={{ fontSize: "15px", color: "#8aab7a", lineHeight: 1.7, marginBottom: "28px" }}>
+                Línea de desechables 100% compostables certificados. Bagazo de trigo, PLA, fécula de maíz y papel + PLA. Para operaciones que exigen lo mejor.
+              </p>
+              <Link
+                to="/catalogo"
+                style={{ display: "inline-flex", alignItems: "center", height: "44px", background: "#e67e22", color: "#1f261d", padding: "0 24px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.06em" }}
+              >
+                Ver línea bioeco →
+              </Link>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+              {["Bagazo de trigo", "PLA", "Fécula de maíz", "Papel + PLA"].map((m) => (
+                <div key={m} style={{ padding: "16px", background: "#2e3a2b", borderRadius: "10px", border: "0.5px solid #3d4e3a" }}>
+                  <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#628141", marginBottom: "8px" }}></div>
+                  <div style={{ fontSize: "13px", fontWeight: 600, color: "#e5d9b6" }}>{m}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA FINAL ────────────────────────────────────────── */}
+      <section style={{ background: "#628141", padding: "96px 0" }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: "48px", alignItems: "center" }}>
+          <div>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 800, color: "#fffbf8", lineHeight: 1.1, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "16px" }}>
+              Empieza con un diagnóstico gratuito.
+            </h2>
+            <p style={{ fontSize: "17px", color: "#c8d9b8", lineHeight: 1.7 }}>
+              Muestras sin costo + propuesta por volumen para tu primera operación. Sin compromiso.
+            </p>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <Link
+              to="/contacto"
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "52px", background: "#e67e22", color: "#1f261d", borderRadius: "6px", fontSize: "14px", fontWeight: 700, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+            >
+              Solicitar cotización
+            </Link>
+            <Link
+              to="/catalogo"
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "52px", border: "1.5px solid rgba(255,255,255,0.4)", color: "#fffbf8", borderRadius: "6px", fontSize: "14px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+            >
+              Ver catálogo completo
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Index;
