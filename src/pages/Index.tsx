@@ -170,20 +170,18 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            {/* Hero image */}
-            <div style={{ position: "relative" }}>
-              <div style={{ aspectRatio: "4/3", borderRadius: "16px", overflow: "hidden", border: "1px solid #3d4e3a" }}>
-                <img
-                  src="/hero.jpg"
-                  alt="Empaque biodegradable Renovapack — soluciones HORECA compostables"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }}
-                />
-              </div>
+            {/* Hero image — transparent bg floats on dark section */}
+            <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "flex-end" }}>
+              <img
+                src="/hero.jpg"
+                alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
+                style={{ width: "100%", maxWidth: "460px", objectFit: "contain", filter: "drop-shadow(0 24px 48px rgba(0,0,0,0.35))" }}
+              />
               {/* Floating bioeco badge */}
-              <div style={{ position: "absolute", bottom: "24px", left: "-16px", background: "#e5d9b6", borderRadius: "12px", padding: "12px 16px", border: "1px solid #c8c0a0", boxShadow: "0 4px 16px rgba(31,38,29,0.2)" }}>
+              <div style={{ position: "absolute", bottom: "24px", right: "0px", background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>línea</div>
-                <div style={{ fontSize: "18px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif" }}>bioeco</div>
-                <div style={{ fontSize: "10px", color: "#628141" }}>100% compostable</div>
+                <div style={{ fontSize: "22px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1 }}>bioeco</div>
+                <div style={{ fontSize: "11px", color: "#628141", marginTop: "2px" }}>100% compostable</div>
               </div>
             </div>
           </div>
