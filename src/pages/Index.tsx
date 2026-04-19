@@ -1,371 +1,346 @@
 import { Link } from "react-router-dom";
-import { WireSection, Lines } from "@/components/wireframe/WireSection";
-import { SeoTechBlock } from "@/components/wireframe/SeoTechBlock";
-import { PageSeoTopBar } from "@/components/wireframe/PageSeoTopBar";
+import { useEffect, useRef, useState } from "react";
+
+const stats = [
+  { value: 2500000, display: "2.5M+", label: "Productos entregados al año" },
+  { value: 85, display: "−85t", label: "CO₂ evitado vs plástico tradicional" },
+  { value: 200, display: "200+", label: "Clientes B2B activos" },
+  { value: 100, display: "100%", label: "Materiales bioeco certificados" },
+];
+
+const sectores = [
+  { name: "Hoteles", desc: "Amenities, desayuno, room service", icon: "🏨" },
+  { name: "Cafeterías", desc: "Vasos, tapas, cubiertos compostables", icon: "☕" },
+  { name: "Restaurantes", desc: "Empaque to-go y entrega a domicilio", icon: "🍽" },
+  { name: "Hospitales", desc: "Desechables grado alimenticio institucional", icon: "🏥" },
+  { name: "Comedores", desc: "Soluciones de alto volumen para empresas", icon: "🏢" },
+];
+
+const diferenciadores = [
+  {
+    n: "01",
+    t: "Solución integral",
+    d: "Materiales, operación y logística en una sola conversación. No coordinas 5 proveedores — coordinas a Renovapack.",
+  },
+  {
+    n: "02",
+    t: "Expertise de industria",
+    d: "Más de una década traduciendo normativas y certificaciones en decisiones operables para tu negocio HORECA.",
+  },
+  {
+    n: "03",
+    t: "Llegamos lejos, rápido",
+    d: "Cobertura nacional con tiempos confiables. Tu operación no se detiene esperando empaque.",
+  },
+];
+
+const categorias = [
+  { name: "Contenedores", count: 24 },
+  { name: "Vasos", count: 18 },
+  { name: "Cubiertos", count: 12 },
+  { name: "Platos", count: 16 },
+  { name: "Bolsas", count: 9 },
+  { name: "Complementarios", count: 14 },
+];
+
+const certs = ["TÜV OK Compost", "BPI", "FSC", "FDA"];
+
+const useCountUp = (target: number, duration = 2000, start = false) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startTime: number;
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setCount(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [start, target, duration]);
+  return count;
+};
+
+const AnimatedWord = () => {
+  const words = ["diferente.", "sustentable.", "inteligente."];
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setIdx((i) => (i + 1) % words.length);
+        setVisible(true);
+      }, 400);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
+  return (
+    <span
+      style={{
+        color: "#e67e22",
+        display: "inline-block",
+        transition: "opacity 0.4s ease",
+        opacity: visible ? 1 : 0,
+        minWidth: "320px",
+      }}
+    >
+      {words[idx]}
+    </span>
+  );
+};
+
+const StatsSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [started, setStarted] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  return (
+    <section ref={ref} style={{ background: "#1f261d", padding: "72px 0" }}>
+      <div className="container">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "32px" }}>
+          {stats.map((s) => (
+            <div key={s.label} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "42px", fontWeight: 700, color: "#e67e22", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1 }}>
+                {s.display}
+              </div>
+              <div style={{ fontSize: "13px", color: "#8aab7a", marginTop: "8px", lineHeight: 1.4, textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Index = () => {
-  // Sectores priorizados según estrategia Cyan Media Lab: foco HORECA primero
-  const sectores = [
-    { name: "Hoteles", kw: "vajilla compostable hoteles · HORECA" },
-    { name: "Restaurantes", kw: "empaque to-go biodegradable restaurantes" },
-    { name: "Cafeterías", kw: "vasos compostables café especialidad" },
-    { name: "Empresas de empaque", kw: "insumos compostables mayoreo distribuidor" },
-    { name: "Hospitales y comedores", kw: "desechables compostables institucional" },
-  ];
-
-  // Promociones activas — actualizable desde admin/WooCommerce
-  const promociones = [
-    {
-      badge: "−15%",
-      tag: "HORECA · Hoteles",
-      t: "Kit bioeco recepción & desayuno",
-      d: "Vasos de bagazo + cubiertos PLA + servilletas compostables. Pedido mínimo 5 cajas.",
-      vence: "Vigente hasta 30 jun 2026",
-      cta: "Cotizar kit",
-    },
-    {
-      badge: "2x1",
-      tag: "Cafeterías",
-      t: "Vasos compostables 12oz",
-      d: "Lleva 2 cajas (2,000 pzs) y paga 1. Ideal para cadenas de café especialidad.",
-      vence: "Vigente hasta 31 may 2026",
-      cta: "Aprovechar",
-    },
-    {
-      badge: "Envío gratis",
-      tag: "Primera compra",
-      t: "Diagnóstico + muestras sin costo",
-      d: "Cotización personalizada por volumen, muestras gratis y envío nacional incluido en tu primer pedido.",
-      vence: "Promoción permanente para nuevos clientes B2B",
-      cta: "Solicitar muestras",
-    },
-  ];
-
-
-  const stories = [
-    { tag: "Caso de éxito HORECA", h: "Cadena hotelera reduce 40% de plástico de un solo uso con Renovapack", m: "5 min lectura" },
-    { tag: "Insight", h: "Normativa 2026 de plásticos en México: lo que tu negocio HORECA debe saber", m: "8 min lectura" },
-    { tag: "Producto · bioeco", h: "Nueva línea bioeco: vasos de bagazo con tapa 100% compostable", m: "Anuncio" },
-  ];
-
   return (
     <>
-      <PageSeoTopBar
-        page="Home"
-        url="/"
-        h1="El futuro se empaca diferente"
-        primaryKeyword="empaques sustentables México"
-      />
-      {/* HERO editorial — narrativa "El futuro se empaca diferente" */}
-      <section className="border-b border-border bg-gradient-to-br from-primary to-primary/80 text-primary-foreground">
-        <div className="container grid gap-8 py-20 md:grid-cols-[1.1fr_1fr] md:items-center">
-          <div className="space-y-6">
-            <div className="text-[11px] font-mono uppercase tracking-widest opacity-70">
-              Renovapack · Soluciones de empaque B2B · HORECA
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section style={{ background: "#1f261d", minHeight: "88vh", display: "flex", alignItems: "center", padding: "80px 0 64px" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "64px", alignItems: "center" }}>
+            <div>
+              <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
+                Renovapack · Empaque B2B · HORECA · México
+              </div>
+              <h1 style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.1, color: "#fffbf8", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "24px" }}>
+                El futuro<br />se empaca{" "}
+                <br />
+                <AnimatedWord />
+              </h1>
+              <p style={{ fontSize: "18px", color: "#8aab7a", lineHeight: 1.7, maxWidth: "480px", marginBottom: "40px" }}>
+                Pioneros en empaque desechable y biodegradable. Más que un proveedor: un aliado que guía tus decisiones con expertise, sustentabilidad real y logística para cualquier escala.
+              </p>
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <Link
+                  to="/catalogo"
+                  style={{ display: "inline-flex", alignItems: "center", height: "52px", background: "#e67e22", color: "#1f261d", padding: "0 28px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                >
+                  Explorar catálogo →
+                </Link>
+                <Link
+                  to="/contacto"
+                  style={{ display: "inline-flex", alignItems: "center", height: "52px", border: "1.5px solid rgba(255,255,255,0.25)", color: "#fffbf8", padding: "0 28px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+                >
+                  Solicitar cotización
+                </Link>
+              </div>
+              {/* Cert strip */}
+              <div style={{ display: "flex", alignItems: "center", gap: "16px", marginTop: "48px", flexWrap: "wrap" }}>
+                <span style={{ fontSize: "10px", color: "#4a6045", textTransform: "uppercase", letterSpacing: "0.1em" }}>Certificados</span>
+                {certs.map((c) => (
+                  <span key={c} style={{ fontSize: "11px", fontWeight: 600, color: "#8aab7a", padding: "4px 10px", border: "0.5px solid #3d4e3a", borderRadius: "4px" }}>
+                    {c}
+                  </span>
+                ))}
+              </div>
             </div>
-            <h1 className="text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              El futuro <br />se empaca <span className="text-accent">diferente.</span>
-            </h1>
-            <p className="max-w-xl text-base opacity-90 md:text-lg">
-              Pioneros en empaque desechable y biodegradable. Más que un proveedor: un aliado que guía tus decisiones de empaque con expertise, sustentabilidad real y capacidad logística para cualquier escala.
+            {/* Hero image placeholder */}
+            <div style={{ position: "relative" }}>
+              <div style={{ aspectRatio: "4/3", borderRadius: "16px", background: "#2e3a2b", border: "1px solid #3d4e3a", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px" }}>
+                <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#3d4e3a", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#628141" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                </div>
+                <p style={{ fontSize: "12px", color: "#4a6045", textAlign: "center", lineHeight: 1.5, maxWidth: "200px" }}>
+                  Foto editorial<br />Mesa HORECA con productos Renovapack
+                </p>
+              </div>
+              {/* Floating bioeco badge */}
+              <div style={{ position: "absolute", bottom: "-16px", right: "-16px", background: "#e5d9b6", borderRadius: "12px", padding: "12px 16px", border: "1px solid #c8c0a0" }}>
+                <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>línea</div>
+                <div style={{ fontSize: "18px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif" }}>bioeco</div>
+                <div style={{ fontSize: "10px", color: "#628141" }}>100% compostable</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATS ────────────────────────────────────────────── */}
+      <StatsSection />
+
+      {/* ── POR QUÉ RENOVAPACK ───────────────────────────────── */}
+      <section style={{ background: "#fffbf8", padding: "96px 0" }}>
+        <div className="container">
+          <div style={{ maxWidth: "600px", marginBottom: "64px" }}>
+            <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "16px" }}>
+              Por qué Renovapack
+            </div>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif" }}>
+              Lo que solo Renovapack hace por ti
+            </h2>
+            <p style={{ fontSize: "17px", color: "#40513b", lineHeight: 1.7, marginTop: "16px" }}>
+              Somos el aliado que traduce normativas, materiales y logística en decisiones claras para tu operación.
             </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link to="/catalogo" className="inline-flex h-12 items-center gap-2 rounded bg-accent px-6 text-sm font-semibold uppercase tracking-wider text-accent-foreground hover:opacity-90">
-                Explorar soluciones →
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
+            {diferenciadores.map((d) => (
+              <div key={d.n} style={{ padding: "36px", background: "#fff", borderRadius: "16px", border: "0.5px solid #e5d9b6" }}>
+                <div style={{ fontSize: "32px", fontWeight: 800, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "16px" }}>{d.n}</div>
+                <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#1f261d", marginBottom: "12px", fontFamily: "'Chillax', 'Nunito', sans-serif" }}>{d.t}</h3>
+                <p style={{ fontSize: "14px", color: "#40513b", lineHeight: 1.7 }}>{d.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTORES ─────────────────────────────────────────── */}
+      <section style={{ background: "#e5d9b6", padding: "96px 0" }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr", gap: "64px", alignItems: "start" }}>
+            <div>
+              <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "16px" }}>
+                Sectores
+              </div>
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "20px" }}>
+                Especialistas en HORECA y B2B industrial
+              </h2>
+              <p style={{ fontSize: "15px", color: "#40513b", lineHeight: 1.7, marginBottom: "32px" }}>
+                Conocemos las necesidades operativas de cada sector. No vendemos cajas — diseñamos soluciones.
+              </p>
+              <Link
+                to="/sectores"
+                style={{ display: "inline-flex", alignItems: "center", height: "48px", background: "#1f261d", color: "#fffbf8", padding: "0 24px", borderRadius: "6px", fontSize: "13px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+              >
+                Ver todos los sectores →
               </Link>
-              <Link to="/contacto" className="inline-flex h-12 items-center gap-2 rounded border-2 border-primary-foreground/40 px-6 text-sm font-semibold uppercase tracking-wider hover:bg-primary-foreground/10">
-                Solicitar cotización
-              </Link>
             </div>
-            <p className="wire-note !bg-primary-foreground/10 !text-primary-foreground/80 !border-accent">
-              Estrategia Cyan Media Lab · H1 con slogan maestro "El futuro se empaca diferente" + sub-claim de posicionamiento (pionero + aliado). CTA primario al catálogo, secundario a cotización HORECA.
-            </p>
-          </div>
-          <div className="space-y-3">
-            <div className="wire-box aspect-[4/3] !bg-primary-foreground/10 !border-primary-foreground/30 !text-primary-foreground/70">
-              IMAGEN HERO — HORECA + EMPAQUE
-            </div>
-            <p className="wire-alt !bg-primary-foreground/10 !text-primary-foreground/80 !border-accent">
-              IMAGEN: foto editorial de mesa de hotel/restaurante o coffee station con vasos bioeco, contenedores compostables. Estética cálida, luz natural. Evitar stock genérico — fotografía propia con clientes reales.
-            </p>
-            <p className="wire-alt !bg-primary-foreground/10 !text-primary-foreground/80 !border-accent">
-              alt="Servicio HORECA con empaque biodegradable Renovapack: vasos bioeco, contenedores compostables y cubiertos de PLA"
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* MANIFIESTO — fragmento brand story */}
-      <section className="border-b border-border bg-background py-14">
-        <div className="container max-w-4xl text-center space-y-4">
-          <div className="text-[11px] font-mono uppercase tracking-widest text-accent">
-            Manifiesto Renovapack
-          </div>
-          <blockquote className="text-2xl font-semibold leading-snug text-primary md:text-3xl">
-            "Hicimos que la sostenibilidad funcione en la práctica,<br />para que cada decisión se convierta en resultado."
-          </blockquote>
-          <div className="text-xs uppercase tracking-widest text-muted-foreground">— Brand Story Renovapack</div>
-        </div>
-      </section>
-
-      {/* BANDA DE CIFRAS */}
-      <section className="border-b border-border bg-primary py-12 text-primary-foreground">
-        <div className="container grid gap-8 md:grid-cols-4">
-          {[
-            { v: "2.5M+", l: "Productos entregados al año" },
-            { v: "−85t", l: "CO₂ evitado vs plástico tradicional" },
-            { v: "200+", l: "Clientes B2B activos" },
-            { v: "100%", l: "Materiales bioeco certificados" },
-          ].map((m) => (
-            <div key={m.l} className="space-y-1">
-              <div className="text-3xl font-bold md:text-4xl text-accent">{m.v}</div>
-              <div className="text-xs uppercase tracking-wider opacity-80">{m.l}</div>
-            </div>
-          ))}
-        </div>
-        <p className="container mt-6 text-[11px] font-mono uppercase tracking-widest opacity-60">
-          SEO · Cifras verificables Renovapack refuerzan E-E-A-T
-        </p>
-      </section>
-
-      {/* DIFERENCIADORES — "Somos el Expedia de los desechables" */}
-      <WireSection tag="01 · Diferenciadores" title="Lo que solo Renovapack hace por ti">
-        <div className="mb-6 max-w-3xl">
-          <p className="text-lg italic text-muted-foreground">
-            "Somos el Expedia de los desechables." — un solo aliado, todas las soluciones, llegamos lejos y rápido.
-          </p>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            { i: "01", t: "Solución integral", d: "Materiales, operación y logística en una sola conversación. No coordinas 5 proveedores — coordinas a Renovapack." },
-            { i: "02", t: "Expertise gurú", d: "Más de [X] años traduciendo normativas, certificaciones y materiales en decisiones operables para tu negocio." },
-            { i: "03", t: "Amplio inventario", d: "Catálogo profundo en categorías, materiales y presentaciones. Cumples con cualquier especificación HORECA." },
-            { i: "04", t: "Llegamos lejos, rápido", d: "Cobertura nacional con tiempos confiables. Tu operación no se detiene esperando empaque." },
-            { i: "05", t: "Aliados estratégicos", d: "No vendemos cajas — construimos relación. Asesor dedicado, planeación de consumo, alertas de inventario." },
-            { i: "06", t: "Servicio que regresa", d: "Cuando te vas por precio, regresas por servicio. La promesa Renovapack está en cómo trabajamos contigo." },
-          ].map((d) => (
-            <div key={d.i} className="space-y-2 rounded border border-border bg-card p-5">
-              <div className="text-2xl font-bold text-accent">{d.i}</div>
-              <h3 className="text-base font-semibold text-primary">{d.t}</h3>
-              <p className="text-sm text-muted-foreground">{d.d}</p>
-            </div>
-          ))}
-        </div>
-        <p className="wire-note mt-4">
-          Estrategia · Diferenciadores extraídos del workshop Cyan Media Lab. Cada bloque traduce un atributo identificado por el equipo Renovapack en mensaje cliente.
-        </p>
-      </WireSection>
-
-      {/* SECTORES — HORECA primero */}
-      <WireSection tag="02 · Sectores" title="Especializados en HORECA + B2B industrial">
-        <div className="grid gap-3 md:grid-cols-5">
-          {sectores.map((s) => (
-            <Link
-              key={s.name}
-              to="/sectores"
-              className="group space-y-2 rounded border border-border bg-card p-3 transition-colors hover:border-accent hover:bg-muted/40"
-            >
-              <div className="wire-box aspect-[4/3]">FOTO SECTOR</div>
-              <div className="text-sm font-semibold text-primary">{s.name}</div>
-              <div className="text-[10px] text-muted-foreground">→ {s.kw}</div>
-            </Link>
-          ))}
-        </div>
-        <p className="wire-note mt-4">
-          Estrategia · HORECA es target prioritario según Cyan Media Lab. Hoteles, restaurantes y cafeterías ocupan 3 de las 5 tarjetas. Hospitales y comedores quedan en sector industrial agrupado.
-        </p>
-      </WireSection>
-
-      {/* CATÁLOGO + LÍNEA BIOECO */}
-      <WireSection tag="03 · Catálogo" title="Soluciones por categoría · línea bioeco compostable">
-        <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded border border-border bg-card p-5">
-            <div className="mb-3 flex items-center justify-between">
-              <h3 className="text-base font-semibold text-primary">Por categoría</h3>
-              <Link to="/catalogo" className="text-xs underline">Ver todo →</Link>
-            </div>
-            <div className="grid grid-cols-3 gap-3">
-              {["Contenedores", "Vasos", "Cubiertos", "Platos", "Bolsas", "Complementos"].map((c) => (
-                <Link key={c} to="/catalogo" className="space-y-1 text-center">
-                  <div className="wire-box aspect-square">FOTO</div>
-                  <div className="text-[11px] font-medium">{c}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              {sectores.map((s) => (
+                <Link
+                  key={s.name}
+                  to="/sectores"
+                  style={{ display: "block", padding: "24px", background: "#fffbf8", borderRadius: "12px", border: "0.5px solid #d0c8a8", textDecoration: "none", transition: "border-color 0.15s" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = "#628141")}
+                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = "#d0c8a8")}
+                >
+                  <div style={{ fontSize: "24px", marginBottom: "8px" }}>{s.icon}</div>
+                  <div style={{ fontSize: "15px", fontWeight: 700, color: "#1f261d", marginBottom: "4px", fontFamily: "'Chillax', 'Nunito', sans-serif" }}>{s.name}</div>
+                  <div style={{ fontSize: "12px", color: "#628141", lineHeight: 1.4 }}>{s.desc}</div>
                 </Link>
               ))}
             </div>
           </div>
-          <div className="rounded border-2 border-accent bg-card p-5">
-            <div className="mb-3 flex items-center justify-between">
-              <div>
-                <div className="text-[10px] font-mono uppercase tracking-widest text-accent">Sub-marca</div>
-                <h3 className="text-base font-semibold text-primary">bioeco · biodegradables</h3>
-              </div>
-              <Link to="/catalogo" className="text-xs underline">Ver línea →</Link>
-            </div>
-            <p className="mb-3 text-xs text-muted-foreground">
-              Línea de desechables 100% compostables certificados. Bagazo, PLA, fécula y papel + PLA.
-            </p>
-            <ul className="space-y-2">
-              {["Bagazo de trigo", "PLA (ácido poliláctico)", "Fécula de maíz", "Bolsas compostables", "Papel laminado con PLA"].map((m) => (
-                <li key={m}>
-                  <Link to="/catalogo" className="flex items-center justify-between rounded border border-border p-3 hover:border-accent hover:bg-muted/40">
-                    <div className="flex items-center gap-3">
-                      <div className="wire-box h-10 w-10 text-[9px]">M</div>
-                      <span className="text-sm font-medium">{m}</span>
-                    </div>
-                    <span className="text-accent">→</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
-        <p className="wire-note mt-4">
-          Estrategia · La sub-marca bioeco (mencionada en p.30 propuesta Cyan Media Lab) se destaca con borde acento. Permite arquitectura de marca: Renovapack (paraguas) → bioeco (línea sustentable).
-        </p>
-      </WireSection>
+      </section>
 
-      {/* PROMOCIONES — sección destacada */}
-      <section className="border-y-2 border-accent bg-gradient-to-br from-accent/10 via-background to-secondary/30 py-14">
-        <div className="container space-y-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl space-y-3">
-              <div className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
-                <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
-                Promociones activas · Renovapack
+      {/* ── CATÁLOGO PREVIEW ─────────────────────────────────── */}
+      <section style={{ background: "#fffbf8", padding: "96px 0" }}>
+        <div className="container">
+          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "48px", flexWrap: "wrap", gap: "16px" }}>
+            <div>
+              <div style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "16px" }}>
+                Catálogo
               </div>
-              <h2 className="text-2xl font-bold text-primary md:text-3xl">
-                Ofertas vigentes para clientes B2B
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#1f261d", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif" }}>
+                90+ soluciones de empaque
               </h2>
-              <p className="text-sm text-muted-foreground">
-                Promociones por volumen, kits sectoriales y beneficios para nuevos clientes HORECA. Aprovéchalas antes de que venzan.
-              </p>
             </div>
-            <Link to="/promociones" className="text-xs font-semibold uppercase tracking-wider text-accent underline underline-offset-4">
-              Ver todas las promociones →
+            <Link to="/catalogo" style={{ fontSize: "14px", fontWeight: 600, color: "#628141", textDecoration: "none" }}>
+              Ver catálogo completo →
             </Link>
           </div>
-
-          <div className="grid gap-5 md:grid-cols-3">
-            {promociones.map((p) => (
-              <article key={p.t} className="relative flex flex-col overflow-hidden rounded-lg border-2 border-accent/40 bg-card shadow-sm transition-all hover:border-accent hover:shadow-lg">
-                <div className="absolute right-3 top-3 z-10 rounded-full bg-accent px-3 py-1 text-xs font-bold text-accent-foreground shadow">
-                  {p.badge}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "12px", marginBottom: "48px" }}>
+            {categorias.map((c) => (
+              <Link
+                key={c.name}
+                to="/catalogo"
+                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", padding: "24px 12px", background: "#fff", borderRadius: "12px", border: "0.5px solid #e5d9b6", textDecoration: "none", transition: "all 0.15s" }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#628141"; e.currentTarget.style.background = "#f4f7f4"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e5d9b6"; e.currentTarget.style.background = "#fff"; }}
+              >
+                <div style={{ width: "48px", height: "48px", background: "#e5d9b6", borderRadius: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#40513b" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
                 </div>
-                <div className="wire-box aspect-[16/10] !rounded-none !border-x-0 !border-t-0 !border-b border-accent/30">
-                  IMAGEN PROMOCIÓN
-                </div>
-                <div className="flex flex-1 flex-col gap-3 p-5">
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-accent">
-                    {p.tag}
-                  </div>
-                  <h3 className="text-lg font-semibold leading-snug text-primary">{p.t}</h3>
-                  <p className="text-sm text-muted-foreground">{p.d}</p>
-                  <div className="mt-auto flex items-center justify-between border-t border-border pt-3">
-                    <span className="text-[11px] italic text-muted-foreground">{p.vence}</span>
-                    <Link to="/contacto" className="text-xs font-semibold uppercase tracking-wider text-accent hover:underline">
-                      {p.cta} →
-                    </Link>
-                  </div>
-                </div>
-              </article>
+                <div style={{ fontSize: "12px", fontWeight: 600, color: "#1f261d", textAlign: "center", lineHeight: 1.3 }}>{c.name}</div>
+                <div style={{ fontSize: "11px", color: "#628141" }}>{c.count} productos</div>
+              </Link>
             ))}
           </div>
-
-          <p className="wire-note">
-            Estrategia · Sección de promociones para incentivar conversión B2B (cotización, muestras). Compatible con WooCommerce: cada tarjeta puede mapearse a un cupón/producto destacado actualizable desde el admin.
-          </p>
+          {/* bioeco highlight */}
+          <div style={{ background: "#1f261d", borderRadius: "16px", padding: "48px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }}>
+            <div>
+              <div style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#628141", marginBottom: "12px" }}>Sub-marca</div>
+              <div style={{ fontSize: "42px", fontWeight: 800, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", lineHeight: 1, marginBottom: "16px" }}>bioeco</div>
+              <p style={{ fontSize: "15px", color: "#8aab7a", lineHeight: 1.7, marginBottom: "28px" }}>
+                Línea de desechables 100% compostables certificados. Bagazo de trigo, PLA, fécula de maíz y papel + PLA. Para operaciones que exigen lo mejor.
+              </p>
+              <Link
+                to="/catalogo"
+                style={{ display: "inline-flex", alignItems: "center", height: "44px", background: "#e67e22", color: "#1f261d", padding: "0 24px", borderRadius: "6px", fontSize: "13px", fontWeight: 700, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.06em" }}
+              >
+                Ver línea bioeco →
+              </Link>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+              {["Bagazo de trigo", "PLA", "Fécula de maíz", "Papel + PLA"].map((m) => (
+                <div key={m} style={{ padding: "16px", background: "#2e3a2b", borderRadius: "10px", border: "0.5px solid #3d4e3a" }}>
+                  <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#628141", marginBottom: "8px" }}></div>
+                  <div style={{ fontSize: "13px", fontWeight: 600, color: "#e5d9b6" }}>{m}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* PROCESO B2B */}
-      <WireSection tag="04 · Proceso" title="Cómo trabajamos contigo">
-        <div className="grid gap-4 md:grid-cols-4">
-          {[
-            { n: "01", t: "Diagnóstico", d: "Analizamos tu operación, volúmenes y normativa aplicable" },
-            { n: "02", t: "Propuesta", d: "Mix de productos Renovapack + bioeco con cotización por volumen" },
-            { n: "03", t: "Muestras", d: "Validas calidad con muestras gratis antes de comprar" },
-            { n: "04", t: "Suministro", d: "Entrega recurrente nacional con asesor dedicado" },
-          ].map((p) => (
-            <div key={p.n} className="space-y-3 rounded border border-border bg-card p-5">
-              <div className="text-3xl font-bold text-accent">{p.n}</div>
-              <h3 className="text-base font-semibold text-primary">{p.t}</h3>
-              <p className="text-xs text-muted-foreground">{p.d}</p>
-            </div>
-          ))}
-        </div>
-      </WireSection>
-
-      {/* STORY CARDS */}
-      <WireSection tag="05 · Insights & Casos" title="Lo último de Renovapack">
-        <div className="grid gap-5 md:grid-cols-3">
-          {stories.map((s) => (
-            <article key={s.h} className="group space-y-3 rounded border border-border bg-card overflow-hidden">
-              <div className="wire-box aspect-[16/10] !rounded-none">IMAGEN HISTORIA</div>
-              <div className="space-y-2 p-4">
-                <div className="text-[10px] font-mono uppercase tracking-widest text-accent">
-                  {s.tag} · {s.m}
-                </div>
-                <h3 className="text-base font-semibold leading-snug text-primary">{s.h}</h3>
-                <Lines count={2} widths={["100%", "70%"]} />
-                <Link to="/blog" className="text-xs font-medium text-accent underline">Leer más →</Link>
-              </div>
-            </article>
-          ))}
-        </div>
-      </WireSection>
-
-      {/* CONFIANZA */}
-      <WireSection tag="06 · Confianza" title="Marcas HORECA que confían en Renovapack">
-        <div className="grid grid-cols-3 gap-3 md:grid-cols-6">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="wire-box h-16 text-[10px]">LOGO {i + 1}</div>
-          ))}
-        </div>
-      </WireSection>
-
-      {/* CTA FINAL — tagline */}
-      <section className="border-t border-border bg-primary py-16 text-primary-foreground">
-        <div className="container grid gap-6 md:grid-cols-[1.5fr_1fr] md:items-center">
-          <div className="space-y-3">
-            <div className="text-[11px] font-mono uppercase tracking-widest text-accent">Renovapack 2026</div>
-            <h2 className="text-3xl font-bold md:text-4xl">
-              El futuro se empaca diferente.<br />Empieza hoy con un diagnóstico gratis.
+      {/* ── CTA FINAL ────────────────────────────────────────── */}
+      <section style={{ background: "#628141", padding: "96px 0" }}>
+        <div className="container" style={{ display: "grid", gridTemplateColumns: "1.5fr 1fr", gap: "48px", alignItems: "center" }}>
+          <div>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 800, color: "#fffbf8", lineHeight: 1.1, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "16px" }}>
+              Empieza con un diagnóstico gratuito.
             </h2>
-            <p className="text-sm opacity-80">
-              Muestras sin costo + propuesta por volumen para tu primera operación HORECA.
+            <p style={{ fontSize: "17px", color: "#c8d9b8", lineHeight: 1.7 }}>
+              Muestras sin costo + propuesta por volumen para tu primera operación. Sin compromiso.
             </p>
           </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to="/contacto" className="inline-flex h-12 flex-1 items-center justify-center rounded bg-accent px-6 text-sm font-semibold uppercase tracking-wider text-accent-foreground hover:opacity-90">
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <Link
+              to="/contacto"
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "52px", background: "#e67e22", color: "#1f261d", borderRadius: "6px", fontSize: "14px", fontWeight: 700, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+            >
               Solicitar cotización
             </Link>
-            <Link to="/catalogo" className="inline-flex h-12 flex-1 items-center justify-center rounded border-2 border-primary-foreground/40 px-6 text-sm font-semibold uppercase tracking-wider hover:bg-primary-foreground/10">
-              Ver catálogo
+            <Link
+              to="/catalogo"
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "52px", border: "1.5px solid rgba(255,255,255,0.4)", color: "#fffbf8", borderRadius: "6px", fontSize: "14px", fontWeight: 600, textDecoration: "none", textTransform: "uppercase", letterSpacing: "0.08em" }}
+            >
+              Ver catálogo completo
             </Link>
           </div>
         </div>
       </section>
-
-      <SeoTechBlock
-        page="Inicio (/)"
-        title="Renovapack · Empaque biodegradable B2B HORECA en México"
-        description="El futuro se empaca diferente. Renovapack: pioneros en empaque desechable y biodegradable bioeco para hoteles, restaurantes, cafeterías y empresas. Cotización B2B nacional."
-        h1="El futuro se empaca diferente"
-        schemas={[
-          "Organization (Renovapack — logo, address, sameAs, contactPoint)",
-          "Brand (sub-marca bioeco como Brand anidada)",
-          "WebSite (potentialAction SearchAction)",
-          "BreadcrumbList",
-          "ItemList (sectores HORECA + categorías)",
-        ]}
-        notes={[
-          "Slogan maestro 'El futuro se empaca diferente' como H1 + en og:title",
-          "Foco SEO HORECA: keywords 'empaque biodegradable hoteles', 'desechables compostables restaurantes', 'vasos compostables cafetería'",
-          "Hreflang: es-MX (default), es, en con x-default a es-MX",
-          "Imagen LCP del hero precargada + width/height explícitos",
-          "Brand Story estructurada: contexto → posicionamiento → diferenciadores → promociones → tagline",
-        ]}
-      />
     </>
   );
 };
