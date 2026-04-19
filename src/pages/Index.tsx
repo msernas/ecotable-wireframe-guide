@@ -62,7 +62,7 @@ const useCountUp = (target: number, duration = 2000, start = false) => {
 };
 
 const AnimatedWord = () => {
-  const words = ["diferente.", "sustentable.", "inteligente."];
+  const words = ["sustentable.", "inteligente.", "diferenciado."];
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
   useEffect(() => {
@@ -132,11 +132,16 @@ const Index = () => {
               <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
                 Renovapack · Empaque B2B · HORECA · México
               </div>
-              <h1 style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.1, color: "#fffbf8", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "24px" }}>
-                El futuro<br />se empaca{" "}
-                <br />
-                <AnimatedWord />
+              <h1 style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.4, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "8px" }}>
+                El futuro<br />
+                <span style={{ background: "#2e3a2b", color: "#e5d9b6", padding: "4px 18px 8px", borderRadius: "10px", display: "inline-block", marginTop: "4px", marginBottom: "4px" }}>
+                  se empaca
+                </span>
+                <br />distinto.
               </h1>
+              <div aria-hidden="true" style={{ fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 800, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "24px", lineHeight: 1.1 }}>
+                <AnimatedWord />
+              </div>
               <p style={{ fontSize: "18px", color: "#8aab7a", lineHeight: 1.7, maxWidth: "480px", marginBottom: "40px" }}>
                 Pioneros en empaque desechable y biodegradable. Más que un proveedor: un aliado que guía tus decisiones con expertise, sustentabilidad real y logística para cualquier escala.
               </p>
@@ -164,18 +169,17 @@ const Index = () => {
                 ))}
               </div>
             </div>
-            {/* Hero image placeholder */}
+            {/* Hero image */}
             <div style={{ position: "relative" }}>
-              <div style={{ aspectRatio: "4/3", borderRadius: "16px", background: "#2e3a2b", border: "1px solid #3d4e3a", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "#3d4e3a", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#628141" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-                </div>
-                <p style={{ fontSize: "12px", color: "#4a6045", textAlign: "center", lineHeight: 1.5, maxWidth: "200px" }}>
-                  Foto editorial<br />Mesa HORECA con productos Renovapack
-                </p>
+              <div style={{ aspectRatio: "4/3", borderRadius: "16px", overflow: "hidden", border: "1px solid #3d4e3a" }}>
+                <img
+                  src="/hero.jpg"
+                  alt="Empaque biodegradable Renovapack — soluciones HORECA compostables"
+                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%" }}
+                />
               </div>
               {/* Floating bioeco badge */}
-              <div style={{ position: "absolute", bottom: "-16px", right: "-16px", background: "#e5d9b6", borderRadius: "12px", padding: "12px 16px", border: "1px solid #c8c0a0" }}>
+              <div style={{ position: "absolute", bottom: "24px", left: "-16px", background: "#e5d9b6", borderRadius: "12px", padding: "12px 16px", border: "1px solid #c8c0a0", boxShadow: "0 4px 16px rgba(31,38,29,0.2)" }}>
                 <div style={{ fontSize: "10px", fontWeight: 700, color: "#628141", textTransform: "uppercase", letterSpacing: "0.08em" }}>línea</div>
                 <div style={{ fontSize: "18px", fontWeight: 800, color: "#40513b", fontFamily: "'Chillax', 'Nunito', sans-serif" }}>bioeco</div>
                 <div style={{ fontSize: "10px", color: "#628141" }}>100% compostable</div>
