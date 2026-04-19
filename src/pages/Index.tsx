@@ -172,6 +172,7 @@ const Index = () => {
             </div>
             {/* Hero image composition */}
             <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "520px" }}>
+              <div style={{ position: "absolute", top: "8%", left: "5%", right: "5%", bottom: "5%", background: "#2e3a2b", borderRadius: "24px" }} aria-hidden="true" />
               <img
                 src="/hero.png"
                 alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
