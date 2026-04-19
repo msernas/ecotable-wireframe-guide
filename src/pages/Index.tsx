@@ -62,7 +62,7 @@ const useCountUp = (target: number, duration = 2000, start = false) => {
 };
 
 const AnimatedWord = () => {
-  const words = ["sustentable.", "inteligente.", "diferenciado."];
+  const words = ["distinto.", "sustentable.", "juntos."];
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
   useEffect(() => {
@@ -78,11 +78,10 @@ const AnimatedWord = () => {
   return (
     <span
       style={{
-        color: "#e67e22",
+        color: "#e5d9b6",
         display: "inline-block",
         transition: "opacity 0.4s ease",
         opacity: visible ? 1 : 0,
-        minWidth: "320px",
       }}
     >
       {words[idx]}
@@ -132,16 +131,18 @@ const Index = () => {
               <div style={{ fontSize: "11px", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "#628141", marginBottom: "24px" }}>
                 Renovapack · Empaque B2B · HORECA · México
               </div>
-              <h1 style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.4, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "8px" }}>
+              {/* Hidden H1 for SEO — Google indexes this, humans see the animated version */}
+              <span className="sr-only" aria-hidden="false" role="heading" aria-level={1}>
+                El futuro se empaca distinto. Renovapack — desechables biodegradables.
+              </span>
+              <p aria-hidden="true" style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 800, lineHeight: 1.45, color: "#e5d9b6", fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "28px" }}>
                 El futuro<br />
-                <span style={{ background: "#2e3a2b", color: "#e5d9b6", padding: "4px 18px 8px", borderRadius: "10px", display: "inline-block", marginTop: "4px", marginBottom: "4px" }}>
+                <span style={{ background: "#2e3a2b", color: "#e5d9b6", padding: "2px 16px 6px", borderRadius: "10px", display: "inline" }}>
                   se empaca
                 </span>
-                <br />distinto.
-              </h1>
-              <div aria-hidden="true" style={{ fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 800, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "24px", lineHeight: 1.1 }}>
+                <br />
                 <AnimatedWord />
-              </div>
+              </p>
               <p style={{ fontSize: "18px", color: "#8aab7a", lineHeight: 1.7, maxWidth: "480px", marginBottom: "40px" }}>
                 Pioneros en empaque desechable y biodegradable. Más que un proveedor: un aliado que guía tus decisiones con expertise, sustentabilidad real y logística para cualquier escala.
               </p>
