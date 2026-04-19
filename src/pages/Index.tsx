@@ -161,10 +161,7 @@ const Index = () => {
                 </span>
               ))}
             </div>
-            <div style={{ marginTop: "20px", display: "inline-flex", alignItems: "center", gap: "8px", background: "#e67e22", padding: "8px 18px", borderRadius: "8px" }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1f261d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-              <span style={{ fontSize: "13px", fontWeight: 700, color: "#1f261d", letterSpacing: "0.02em" }}>Imprimimos tu Marca</span>
-            </div>
+
           </div>
         </div>
 
@@ -177,6 +174,12 @@ const Index = () => {
           alt="Empaque biodegradable Renovapack — vasos compostables HORECA"
           style={{ position: "absolute", bottom: "5%", right: "0%", height: "100%", width: "50%", objectFit: "contain", objectPosition: "bottom center", zIndex: 2 }}
         />
+
+        {/* Imprimimos tu Marca badge — on top of green rectangle */}
+        <div style={{ position: "absolute", bottom: "29%", right: "38%", zIndex: 3, display: "inline-flex", alignItems: "center", gap: "8px", background: "#e67e22", padding: "8px 18px", borderRadius: "8px", boxShadow: "0 4px 16px rgba(0,0,0,0.2)" }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1f261d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span style={{ fontSize: "13px", fontWeight: 700, color: "#1f261d" }}>Imprimimos tu Marca</span>
+        </div>
 
         {/* Badge */}
         <div style={{ position: "absolute", bottom: "12%", right: "2%", zIndex: 3, background: "#e5d9b6", borderRadius: "12px", padding: "14px 18px", border: "1px solid #c8c0a0", boxShadow: "0 8px 32px rgba(0,0,0,0.25)" }}>
