@@ -224,10 +224,10 @@ const Index = () => {
             <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
               <div>
                 <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: 800, color: "#fffbf8", lineHeight: 1.15, fontFamily: "'Chillax', 'Nunito', sans-serif", marginBottom: "8px" }}>
-                  Especialistas en Soluciones de Empaque para Tu Negocio
+                  Desechables Biodegradables para Tu Negocio
                 </h2>
                 <p style={{ fontSize: "15px", color: "#e5d9b6", lineHeight: 1.5 }}>
-                  Desechables biodegradables para todo tipo de negocios - Servicio y Calidad
+                  Soluciones de Empaque  - Servicio y Calidad
                 </p>
               </div>
               <Link
