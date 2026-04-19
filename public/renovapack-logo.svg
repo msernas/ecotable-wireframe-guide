@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 170" width="920" height="170">
+  <defs>
+    <style>
+      @import url('https://api.fontshare.com/v2/css?f[]=chillax@700&display=swap');
+      .wordmark {
+        font-family: 'Chillax', 'Nunito', sans-serif;
+        font-weight: 700;
+        font-size: 148px;
+        fill: #1f261d;
+        letter-spacing: -2px;
+      }
+    </style>
+  </defs>
+
+  <!-- "renova" -->
+  <text class="wordmark" x="8" y="148">renova</text>
+
+  <!-- Recycling arrows symbol — positioned between renova and pack -->
+  <!-- This replaces the gap between "a" and "p" -->
+  <g transform="translate(548, 28) scale(0.88)">
+    <!-- Top arrow pointing LEFT -->
+    <path d="
+      M 108 0
+      L 28 0
+      L 28 -18
+      L 0 8
+      L 28 34
+      L 28 16
+      L 108 16
+      Q 126 16 132 8
+      L 158 8
+      L 146 0
+      Z
+    " fill="#1f261d"/>
+
+    <!-- Bottom arrow pointing RIGHT -->
+    <path d="
+      M 50 58
+      L 130 58
+      L 130 40
+      L 158 66
+      L 130 92
+      L 130 74
+      L 50 74
+      Q 32 74 26 66
+      L 0 66
+      L 12 58
+      Z
+    " fill="#1f261d"/>
+
+    <!-- Left vertical connector -->
+    <rect x="18" y="8" width="16" height="58" rx="4" fill="#1f261d"/>
+
+    <!-- Right vertical connector -->
+    <rect x="132" y="8" width="16" height="58" rx="4" fill="#1f261d"/>
+  </g>
+
+  <!-- "pack" -->
+  <text class="wordmark" x="688" y="148">pack</text>
+
+  <!-- © symbol -->
+  <text
+    font-family="'Chillax', 'Nunito', sans-serif"
+    font-size="38"
+    font-weight="600"
+    fill="#1f261d"
+    x="896"
+    y="42"
+  >©</text>
+</svg>
